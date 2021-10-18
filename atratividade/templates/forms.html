@@ -1,0 +1,91 @@
+{%extends 'structure.html'%}
+{%load static%}
+
+
+{%block title%}Atratividade Mercado{%endblock%}
+
+{%block static%}
+    <link rel='stylesheet' href='{%static "css/home/forms.css"%}'>
+{%endblock%}
+
+{%block letters%}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+{%endblock%}
+
+{%block content%}
+    <div id='header-card' class='main-div'>
+        <div id='card-image' class='my-card'>
+            <a href='/'><img src='{%static "image/home/logo.png"%}'></a>
+        </div>
+    </div>
+
+    <div id='informations' class='main-div'>
+        <div id='title-forms' class='my-card'>
+            <div class='title-card'>
+                <p>{%block myTitle%}Atratividade Mercado{%endblock%}</p>
+            </div>
+            <div id='info-quiz'>
+                <span>* Obrigatório</span>
+            </div>
+        </div>
+        <div id='my-name' class='my-info my-card'>
+            <div class='title-card title-card'>
+                <p>
+                    Nome
+                    <span class='lock'>*</span>
+                </p>
+            </div>
+            <div>
+                <input type="text" required="" placeholder="Sua resposta">
+            </div>
+        </div>
+        <div id='my-mail' class='my-info my-card'>
+            <div class='title-card'>
+                <p>
+                    E-mail
+                    <span class='lock'>*</span>
+                </p>
+            </div>
+            <div>
+                <input type="text" required="" placeholder="Sua resposta">
+            </div>
+        </div>
+    </div>
+
+    <div id='session-questions' class='main-div'>
+        {%for question in questions%}
+            <div class='my-card'>
+                <div class='title-card'>
+                    <p>
+                        {{question}}
+                        <span class='lock'>*</span>
+                    </p>
+                </div>
+                <div class='option-card-question'>
+                    <select>
+                        <option disabled selected value>Selecione sua resposta</option>
+                        <option value='Não tenho opinião'>Não tenho opinião</option>
+                        <option value='Discordo totalmente'>Discordo totalmente</option>
+                        <option value='Discordo em parte'>Discordo em parte</option>
+                        <option value='Concordo'>Concordo</option>
+                        <option value='Concordo totalmente'>Concordo totalmente</option>
+                    </select>
+                </div>
+            </div>
+        {%endfor%}
+    </div>
+
+    
+    <div id='card-actions' class='main-div'>
+        <div id='card-actions-centralize'>
+            <div class='half-card-action'>
+                <span id='btn-send'>Enviar</span>
+            </div>
+            <div class='half-card-action'>
+                <span id='btn-clear'>Limpar Formulário</span>
+            </div>
+        </div>
+    </div>
+{%endblock%}

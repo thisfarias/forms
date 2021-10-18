@@ -1,0 +1,159 @@
+.main-div{
+    display:flex;
+    flex-direction:column;
+    align-items: center; 
+    justify-content: center;
+    background-color:#ede7f6
+}
+
+.my-card{
+    background-color:#fff;
+    border:2px solid #ede7f6;
+    border-radius:8px;
+    width:40%;
+    height:15vh;
+    margin-top:15px;
+    margin-bottom:15px;
+    padding:0px 15px;
+}
+
+.title-card{
+    width:100%;
+    height:40%;
+}
+
+.title-card p{
+    font-family: 'Kanit', sans-serif;
+    font-size:21px;
+    font-weight:bold;
+    color:#04eb8c;   
+    margin-top:10px;
+}
+
+#header-card{
+    width:100%;
+    height:20vh;
+    margin:auto;
+}
+
+#card-image{
+    background-color:lightgreen;
+}
+
+#card-image img{
+    position:relative;
+    left:50%;
+    top:0%;
+    transform:translate(-50%, -0%);
+    width:300px;
+    height:80px;
+}
+
+#informations{
+    width:100%;
+    height:auto;
+}
+
+#title-forms{
+    height:8vh;
+    display:flex;
+}
+
+#title-forms div{
+    width:50%;
+}
+
+#info-quiz span{
+    color:red;
+    font-size:16px;
+    position:relative;
+    left:70%;
+    top:50%;
+    transform:translate(-70%, -50%);
+}
+
+.lock{
+    color:red;
+    font-size:15px;
+}
+
+input{
+    border:none;
+    border-bottom: 2px solid #ede7f6;
+    width:20vw;
+    font-family:'Kanit', sans-serif;
+    letter-spacing:1.5px;
+    font-size:16.5px;
+    color:#333;
+    outline:none;
+    transition:border 1000ms ease-in-out;
+}
+
+input:focus{
+    border-color:#04eb8c;
+}
+
+select{
+    color:#333;
+    width:20vw;
+    font-family:'Kanit', sans-serif;
+    letter-spacing:1.5px;
+    font-size:16.5px;
+    outline:none;
+    border:none;
+    border-bottom: 2px solid #ede7f6;
+}
+
+#card-actions{
+    width:100%;
+}
+
+#card-actions-centralize{
+    width:40%;
+    height:5vh;
+    margin-top:15px;
+    margin-bottom:15px;
+    padding:0px 15px;
+    display:flex;
+    flex-direction:row;
+}
+
+.half-card-action{
+    width:50%
+}
+
+#btn-send{
+    background-color:#04eb8c;
+    color:#333;
+    padding:10px 20px;
+    border-radius: 8px;
+    font-family:'Kanit', sans-serif;
+    letter-spacing:1.5px;
+    font-size:15px;
+    font-weight:bold;
+}
+
+#btn-send:hover{
+    cursor:pointer;
+    color:#ede7f6;
+    background-color: #333;
+}
+
+#btn-clear{
+    position:relative;
+    left:40%;
+    top:0%;
+    transform:translate(-40%, -0%);
+    font-family:'Kanit', sans-serif;
+    letter-spacing:1.5px;
+    font-size:16px;
+    font-weight:bold;
+    color:#04eb8c;
+}
+
+#btn-clear:hover{
+    cursor:pointer;
+    background-color: #333;
+    padding:8px 5px;
+    border-radius:8px;
+}
