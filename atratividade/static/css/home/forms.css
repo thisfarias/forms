@@ -3,12 +3,12 @@
     flex-direction:column;
     align-items: center; 
     justify-content: center;
-    background-color:#ede7f6
+    background-color:#fff;
 }
 
 .my-card{
-    background-color:#fff;
-    border:2px solid #ede7f6;
+    background-color:#F6F6F6;
+    border:2px solid #fff;
     border-radius:8px;
     width:40%;
     height:15vh;
@@ -23,11 +23,11 @@
 }
 
 .title-card p{
-    font-family: 'Kanit', sans-serif;
+    font-family:AprovaSans, sans-serif;
     font-size:21px;
-    font-weight:bold;
-    color:#04eb8c;   
+    color:#000;   
     margin-top:10px;
+    letter-spacing:1.5px;
 }
 
 #header-card{
@@ -37,14 +37,14 @@
 }
 
 #card-image{
-    background-color:lightgreen;
+    background-color:#fff
 }
 
 #card-image img{
     position:relative;
     left:50%;
-    top:0%;
-    transform:translate(-50%, -0%);
+    top:50%;
+    transform:translate(-50%, -50%);
     width:300px;
     height:80px;
 }
@@ -57,6 +57,16 @@
 #title-forms{
     height:8vh;
     display:flex;
+    background-color:#00E88F;
+}
+
+#main-title p{
+    font-family: VanguardCF, sans-serif;
+    font-size: 32px;
+    line-height: 1;
+    text-transform: uppercase;
+    margin:0px;
+    margin-top:3px;
 }
 
 #title-forms div{
@@ -66,42 +76,56 @@
 #info-quiz span{
     color:red;
     font-size:16px;
+    font-family: AprovaSans, sans-serif;
+    letter-spacing: 1.5px;
     position:relative;
-    left:70%;
+    left:60%;
     top:50%;
-    transform:translate(-70%, -50%);
+    transform:translate(-60%, -50%);
 }
 
 .lock{
     color:red;
-    font-size:15px;
+    font-size:18px;
+    font-family: AprovaSans, sans-serif;
 }
 
 input{
     border:none;
-    border-bottom: 2px solid #ede7f6;
+    border-bottom: 2px solid #333;
     width:20vw;
-    font-family:'Kanit', sans-serif;
+    font-family: AprovaSans, sans-serif;
     letter-spacing:1.5px;
-    font-size:16.5px;
+    font-size:18px;
     color:#333;
     outline:none;
-    transition:border 1000ms ease-in-out;
+    transition:border 500ms ease-in-out;
+    background-color:#F6F6F6;
 }
 
 input:focus{
-    border-color:#04eb8c;
+    border-color:#00E88F;
 }
 
 select{
     color:#333;
     width:20vw;
-    font-family:'Kanit', sans-serif;
+    font-family: AprovaSans, sans-serif;
     letter-spacing:1.5px;
-    font-size:16.5px;
+    font-size:18px;
     outline:none;
     border:none;
-    border-bottom: 2px solid #ede7f6;
+    border-bottom: 2px solid #333;
+    background-color:#F6F6F6;
+    transition:border 500ms ease-in-out;
+}
+
+select:hover{
+    cursor:pointer;
+}
+
+select:focus{
+    border-color:#00E88F;
 }
 
 #card-actions{
@@ -123,11 +147,11 @@ select{
 }
 
 #btn-send{
-    background-color:#04eb8c;
+    background-color:#00E88F;
     color:#333;
     padding:10px 20px;
     border-radius: 8px;
-    font-family:'Kanit', sans-serif;
+    font-family: AprovaSans, sans-serif;
     letter-spacing:1.5px;
     font-size:15px;
     font-weight:bold;
@@ -135,8 +159,8 @@ select{
 
 #btn-send:hover{
     cursor:pointer;
-    color:#ede7f6;
-    background-color: #333;
+    color:#00E88F;
+    background-color: #000;
 }
 
 #btn-clear{
@@ -144,16 +168,16 @@ select{
     left:40%;
     top:0%;
     transform:translate(-40%, -0%);
-    font-family:'Kanit', sans-serif;
+    font-family: AprovaSans, sans-serif;
     letter-spacing:1.5px;
     font-size:16px;
     font-weight:bold;
-    color:#04eb8c;
+    color:#00E88F;
 }
 
 #btn-clear:hover{
     cursor:pointer;
-    background-color: #333;
+    background-color: #000;
     padding:8px 5px;
     border-radius:8px;
 }
