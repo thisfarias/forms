@@ -181,7 +181,11 @@ def profile_category(info, args):
         Geral: %i
     '''%(myOrg, myTecn, myComp, myEmpr, myInfra, myLid, total))
 
+    return [myOrg, myTecn, myComp, myEmpr, myInfra, myLid, total]
 
+def update_data():
+    pass
 
 def send_mail():
     pass
+

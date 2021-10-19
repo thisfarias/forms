@@ -5,25 +5,16 @@
 {%block title%}Atratividade Mercado{%endblock%}
 
 {%block static%}
-    <link rel='stylesheet' href='{%static "css/home/forms.css"%}'>
+    <link rel='stylesheet' href='{%static "css/forms.css"%}'>
 {%endblock%}
 
-{%block letters%}
-    <style type="text/css">
-        @font-face{font-family:AprovaSans;src:url(https://d3awytnmmfk53d.cloudfront.net/landings/static/fonts/aprova-sans/Aprova-Regular.woff2) format("woff2"),url(https://d3awytnmmfk53d.cloudfront.net/landings/static/fonts/aprova-sans/Aprova-Regular.woff) format("woff"),url(https://d3awytnmmfk53d.cloudfront.net/landings/static/fonts/aprova-sans/Aprova-Regular.otf) format("opentype"),url(https://d3awytnmmfk53d.cloudfront.net/landings/static/fonts/aprova-sans/Aprova-Regular.ttf) format("truetype");font-style:normal}
-        @font-face{font-family:AprovaSansBold;src:url(https://d3awytnmmfk53d.cloudfront.net/landings/static/fonts/aprova-sans/Aprova-Bold.woff2) format("woff2"),url(https://d3awytnmmfk53d.cloudfront.net/landings/static/fonts/aprova-sans/Aprova-Bold.woff) format("woff"),url(https://d3awytnmmfk53d.cloudfront.net/landings/static/fonts/aprova-sans/Aprova-Bold.otf) format("opentype"),url(https://d3awytnmmfk53d.cloudfront.net/landings/static/fonts/aprova-sans/Aprova-Bold.ttf) format("truetype");font-weight:800;font-style:normal}
-        @font-face{font-family:AprovaSansBlack;src:url(https://d3awytnmmfk53d.cloudfront.net/landings/static/fonts/aprova-sans/Aprova-Black.woff2) format("woff2"),url(https://d3awytnmmfk53d.cloudfront.net/landings/static/fonts/aprova-sans/Aprova-Black.woff) format("woff"),url(https://d3awytnmmfk53d.cloudfront.net/landings/static/fonts/aprova-sans/Aprova-Black.otf) format("opentype"),url(https://d3awytnmmfk53d.cloudfront.net/landings/static/fonts/aprova-sans/Aprova-Black.ttf) format("truetype");font-weight:900;font-style:normal}
-        @font-face{font-family:Descomplica;src:url(https://d3awytnmmfk53d.cloudfront.net/landings/static/fonts/Descomplica-Medium.otf) format("opentype");font-weight:500;font-style:normal}
-        @font-face{font-family:InterUI;src:url(https://d3awytnmmfk53d.cloudfront.net/landings/static/fonts/inter-ui/Inter-UI-Regular.woff2) format("woff2"),url(https://d3awytnmmfk53d.cloudfront.net/landings/static/fonts/inter-ui/Inter-UI-Regular.woff) format("woff");font-weight:400;font-style:normal}
-        @font-face{font-family:Pixellari;src:url(https://d3awytnmmfk53d.cloudfront.net/landings/static/fonts/Pixellari.ttf) format("truetype");font-weight:500;font-style:normal}
-        @font-face{font-family:VanguardCF;src:url(https://d3awytnmmfk53d.cloudfront.net/landings/static/fonts/vanguard/Vanguard-CF-Bold.otf) format("opentype");font-style:normal}
-    </style>
-{%endblock%}
+{%block fonts%}{%endblock%}
 
 {%block content%}
+    {%csrf_token%}
     <div id='header-card' class='main-div'>
         <div id='card-image' class='my-card'>
-            <a href='/'><img src='{%static "image/home/logo.png"%}'></a>
+            <a href='/'><img src='{%static "image/logo.png"%}'></a>
         </div>
     </div>
 
@@ -44,7 +35,7 @@
                 </p>
             </div>
             <div>
-                <input type="text" required="" placeholder="Sua resposta">
+                <input id='name' type="text" required="" placeholder="Sua resposta">
             </div>
         </div>
         <div id='my-mail' class='my-info my-card'>
@@ -55,7 +46,7 @@
                 </p>
             </div>
             <div>
-                <input type="text" required="" placeholder="Sua resposta">
+                <input id='email' type="text" required="" placeholder="Sua resposta">
             </div>
         </div>
     </div>
@@ -70,7 +61,7 @@
                     </p>
                 </div>
                 <div class='option-card-question'>
-                    <select>
+                    <select class='my-option'>
                         <option disabled selected value>Selecione sua resposta</option>
                         <option value='Não tenho opinião'>Não tenho opinião</option>
                         <option value='Discordo totalmente'>Discordo totalmente</option>
@@ -90,12 +81,36 @@
                 <span id='btn-send'>Enviar</span>
             </div>
             <div class='half-card-action'>
-                <span id='btn-clear'>Limpar Formulário</span>
+                <a href='/atratividade/forms'><span id='btn-clear'>Limpar Formulário</span></a>
             </div>
         </div>
     </div>
 {%endblock%}
 
 {%block scripts%}
-    
+    <script>
+        $('#btn-send').click(function(){
+            var myInfo = '';
+            var myList = [];
+            $('.my-option').each(function(index){
+                if($(this).val() != null){
+                    myList.push($(this).val());
+                }
+            });
+            $.ajax({
+                type:'POST',
+                url:'{%url "sendAnswersAtratividade"%}',
+                data:{
+                    'name':$('#name').val(),
+                    'email':$('#email').val(),
+                    'myList':JSON.stringify(myList),
+                    'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val()
+                },
+                success:function(data, textStatus, jqXHR){
+                    window.location.href = '{%url "forms"%}'
+                }, 
+                dataType:'html'   
+            });
+        });
+    </script>
 {%endblock%}

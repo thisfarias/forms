@@ -1,0 +1,75 @@
+{%extends 'structure.html'%}
+{%load static%}
+
+{%block title%}Gráfico Atratividade{%endblock%}
+
+{%block static%}
+    <link rel='stylesheet' href='{%static "css/graphic.css"%}'
+{%endblock%}
+
+{%block fonts%}{%endblock%}
+
+{%block navbar%}
+    <div id='my-navbar'>
+         <div id='centralize-logo'>
+            <a id='my-link-' href='/'><img id='my-logo' src='{%static "image/logo.png"%}'></a>
+         </div>
+    </div>
+{%endblock%}
+
+{%block content%}
+    <div id='my-div'>
+        <div id='section-left'>
+            <div id='intern-left-top'>
+                <div class='my-info'>
+                    <input id='name'>
+                </div>
+                <div class='my-info'>
+                    <input id='email'>
+                </div>
+            </div>
+            <div id='intern-right-bottom'>
+                <div class='section-graphic'>
+                    <p>Seção Gráfico 1</p>
+                </div>
+            </div>
+        </div>
+        <div id='section-right'>
+            <div class='section-graphic'>
+                <p>Seção Gráfico 2</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--<div id="chart_div"></div>-->
+{%endblock%}
+
+{%block footer%}{%endblock%}
+{%block scripts%}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Topping');
+            data.addColumn('number', 'Slices');
+            data.addRows([
+            ['Mushrooms', 3],
+            ['Onions', 1],
+            ['Olives', 1],
+            ['Zucchini', 1],
+            ['Pepperoni', 2]
+            ]);
+
+            var options = {'title':'How Much Pizza I Ate Last Night',
+                        'width':400,
+                        'height':300};
+
+            var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+    </script>
+{%endblock%}
