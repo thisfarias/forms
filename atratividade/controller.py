@@ -236,6 +236,7 @@ def send_mail(my_list):
             <span style='font-family:Arial'><b>Nível de intraempreededorismo:</b> {:.2f}%</span><br>\n
             <span style='font-family:Arial'><b>Perfil de liderança:</b> {:.2f}%</span><br>\n
         <br>
+        <p style='font-family:Arial'>Segue o link, para futurasconsultas: <a href='http://127.0.0.1:8000/atratividade/charts/{}'></a>(http://127.0.0.1:8000/atratividade/charts/{}</p><br>\n
         <span style='font-family:Arial'>Atenciosamente,</span>\n
         <p style='font-family:Arial'>Equipe <a href='https://descomplica.com.br/' style='color:#00E88F; text-decoration:none'><b>D</b></a>.</p>
         '''.format(
@@ -246,8 +247,9 @@ def send_mail(my_list):
             float(my_list[5]),
             float(my_list[6]),
             float(my_list[7]),
-            float(my_list[8])
-
+            float(my_list[8]),
+            my_list[9],
+            my_list[9],
         )
         msg['Subject'] = 'Avaliação Atratividade Mercado'
         msg['From'] = "my_mail"

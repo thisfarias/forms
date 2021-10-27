@@ -10,6 +10,7 @@
     justify-content: center;
     display: block;
     margin: 0 auto;
+    width: 25rem;
 }
 
 .default-section {
@@ -17,7 +18,7 @@
 }
 
 .content-in-div {
-    margin-top: 40px;
+    margin-top: 4.0rem;
 }
 
 .info {
@@ -27,7 +28,7 @@
 }
 
 .info-input {
-    width: 100%;
+    width: 85%;
 }
 
 .icon {
@@ -39,7 +40,7 @@
     outline: none;
     border: none;
     border-bottom: 2px solid #000;
-    width: 80%;
+    width: 100%;
     font-family: AprovaSans, sans-serif;
     letter-spacing: 1.5px;
     font-size: 1.8rem;
@@ -60,4 +61,158 @@
     font-family: AprovaSans, sans-serif;
     letter-spacing: 1.5px;
     font-weight: bold;
+}
+
+.card-why {
+    height: auto;
+    width: 90%;
+    margin-top: 1.0rem;
+}
+
+.reasons {
+    width: auto;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.reason-title {
+    width: auto;
+}
+
+.reason-title span {
+    font-family: AprovaSans, sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: .3rem;
+    font-weight: bold;
+    line-height: 1;
+    text-transform: uppercase;
+    background-color: #00E88F;
+    padding: .2rem .5rem;
+    border-radius: 10px;
+}
+
+.reason-text {
+    width: auto;
+    margin-top: 1.5rem
+}
+
+.reason-text p {
+    font-family: AprovaSans, sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: .2rem;
+    line-height: 1;
+    margin: 0px;
+}
+
+.reason-list {
+    font-family: AprovaSans, sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: .2rem;
+    line-height: 1;
+    margin-top: 1.5rem;
+}
+
+.reason-points {
+    margin-top: 1.0rem
+}
+
+.title-point {
+    font-weight: bold;
+}
+
+.div-chart {
+    margin-top: 35px;
+}
+
+.create-chart {
+    height: 100px;
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.intern-chart {
+    height: 5rem;
+    width: 85%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cchart {
+    height: 5rem;
+    width: 85%;
+    background-color: #33B8FF;
+    border-radius: 10px;
+    position: absolute;
+}
+
+.copy-chart {
+    height: 5rem;
+    width: 85%;
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.medium-line {
+    height: 5rem;
+    width: .65rem;
+    background-color: #000;
+    padding: 2rem 0rem;
+    z-index: 11;
+}
+
+.my-line {
+    height: 100%;
+    width: .3rem;
+    background-color: #00E88F;
+    padding: 1.5rem 0rem;
+    z-index: 12;
+    position: absolute;
+}
+
+.external-chart {
+    height: 5rem;
+    width: 85%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.legend {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.legend span {
+    font-family: AprovaSans, sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: .2rem;
+    line-height: 1;
+}
+
+#interno-externo {
+    background-color: #00a3fe
+}
+
+#lideranca-tecnica {
+    background-color: #ff42a1
+}
+
+#processos-projetos {
+    background-color: #fe654e
+}
+
+#intra-extra {
+    background-color: #ffd932
 }

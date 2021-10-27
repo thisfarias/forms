@@ -4,7 +4,7 @@
 {%endblock%} {%block fonts%}{%endblock%} {%block navbar%}
 <div id='navbar'>
     <div id='div-logo'>
-        <a href='/'><img id='logo' src='{%static "image/logo.png"%}'></a>
+        <a href='/'><img id='logo' src='{%static "image/logo.svg"%}'></a>
     </div>
 </div>
 {%endblock%} {%block content%} {%csrf_token%}
@@ -38,6 +38,24 @@
             </div>
             <div class='div-chart'>
                 <div id="atratividade_geral" class='charts'></div>
+                <div class='card-why'>
+                    <div class='reasons'>
+                        <div class=reason-title>
+                            <span>O que é?</span>
+                        </div>
+                        <div class='reason-text'>
+                            <p>Mede o quão atrativo para o Mercado de Trabalho é o seu Perfil como um todo. Esse indicador leva em consideração todos os pontos desejados pelas principais empresas que recrutam hoje.</p>
+                        </div>
+                    </div>
+                    <div class='reasons'>
+                        <div class=reason-title>
+                            <span>O que é um bom resultado?</span>
+                        </div>
+                        <div class='reason-text'>
+                            <p>Um bom resultado é aquele que está acima do mínimo que o Mercado pede. Um excelente resultado é aquele que é acima da linha da média do Mercado</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -49,6 +67,21 @@
                 </div>
                 <div class='div-chart'>
                     <div id="habilidades" class='charts'></div>
+                    <div class='card-why'>
+                        <div class='reasons'>
+                            <div class=reason-title>
+                                <span>O que é?</span>
+                            </div>
+                            <div class='reason-text'>
+                                <p>Mede dentro do seu perfil, como estão as suas habilidades técnicas, comportamentais e organizacionais.</p>
+                                <ul class='reason-list'>
+                                    <li class='reason-points'><span class='title-point'>Técnicas: </span>relacionadas ao conhecimento específico da sua área.<br>Ex: Vendedor | Como fazer uma boa venda.</li>
+                                    <li class='reason-points'><span class='title-point'>Comportamentais: </span>relacionadas ao relacionamento com seus colegas.<br>Ex: Gerente | Gestão de Conflitos Pessoais</li>
+                                    <li class='reason-points'><span class='title-point'>Organizacionais: </span>relacionadas ao trabalho em uma empresa.<br>Ex: Relacionamento com Chefe</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -60,6 +93,25 @@
             </div>
             <div class='div-chart'>
                 <div id="liderança" class='charts'></div>
+                <div class='card-why'>
+                    <div class='reasons'>
+                        <div class=reason-title>
+                            <span>O que é?</span>
+                        </div>
+                        <div class='reason-text'>
+                            <p>Mede como está o nível da sua habilidade de liderança frente o Mercado para assumir posições de liderança de pessoas.
+                            </p>
+                        </div>
+                    </div>
+                    <div class='reasons'>
+                        <div class=reason-title>
+                            <span>O que é um bom resultado?</span>
+                        </div>
+                        <div class='reason-text'>
+                            <p>Um bom resultado é aquele que está acima do mínimo que o Mercado pede. Um excelente resultado é aquele que é acima da linha da média do Mercado.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -70,6 +122,20 @@
             </div>
             <div class='div-chart'>
                 <div id="empreend" class='charts'></div>
+                <div class='card-why'>
+                    <div class='reasons'>
+                        <div class=reason-title>
+                            <span>O que é?</span>
+                        </div>
+                        <div class='reason-text'>
+                            <p>Mede dentro do seu perfil, as componentes de Intra e Extra empreendedorismo.</p>
+                            <ul class='reason-list'>
+                                <li class='reason-points'><span class='title-point'>Intra: </span>Pessoas que empreendem dentro de uma empresa.<br>Pessoas que inovam, criam novos projetos, cultivam novas ideias</li>
+                                <li class='reason-points'><span class='title-point'>Extra: </span>Pessoas que empreendem por si mesmas. <br>Montam o seu negócio, testam novas ideias e estão sempre a busca de montar algo do seu jeito</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -79,7 +145,120 @@
                 <p>Tendências</p>
             </div>
             <div class='div-chart'>
-                <div id="tendências" class='charts'></div>
+                <div class='create-chart'>
+                    <div class='intern-chart'>
+                        <div id="interno-externo" class='charts cchart'></div>
+                        <div class='copy-chart'>
+                            <div class='medium-line'></div>
+                            <div class='my-line'></div>
+                        </div>
+                    </div>
+                    <div class='external-chart'>
+                        <div class='legend'>
+                            <span>Interno</span>
+                        </div>
+                        <div class='legend'>
+                            <span>Externo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class='card-why'>
+                    <div class='reasons'>
+                        <div class=reason-title>
+                            <span>O que é?</span>
+                        </div>
+                        <div class='reason-text'>
+                            <p>Mede se o seu perfil é mais alinhado para trabalhar dentro de uma empresa ou fora de uma empresa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='div-chart'>
+                <div class='create-chart'>
+                    <div class='intern-chart'>
+                        <div id="lideranca-tecnica" class='charts cchart'></div>
+                        <div class='copy-chart'>
+                            <div class='medium-line'></div>
+                            <div class='my-line'></div>
+                        </div>
+                    </div>
+                    <div class='external-chart'>
+                        <div class='legend'>
+                            <span>Liderança</span>
+                        </div>
+                        <div class='legend'>
+                            <span>Técnica</span>
+                        </div>
+                    </div>
+                </div>
+                <div class='card-why'>
+                    <div class='reasons'>
+                        <div class=reason-title>
+                            <span>O que é?</span>
+                        </div>
+                        <div class='reason-text'>
+                            <p>Mede se o seu perfil é mais alinhado para trabalhar com liderança de pessoas ou com liderança técnica.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='div-chart'>
+                <div class='create-chart'>
+                    <div class='intern-chart'>
+                        <div id="processos-projetos" class='charts cchart'></div>
+                        <div class='copy-chart'>
+                            <div class='medium-line'></div>
+                            <div class='my-line'></div>
+                        </div>
+                    </div>
+                    <div class='external-chart'>
+                        <div class='legend'>
+                            <span>Processos</span>
+                        </div>
+                        <div class='legend'>
+                            <span>Projetos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class='card-why'>
+                    <div class='reasons'>
+                        <div class=reason-title>
+                            <span>O que é?</span>
+                        </div>
+                        <div class='reason-text'>
+                            <p>Mede se o seu perfil é mais alinhado para trabalhar com processos internos de uma empresa ou com projetos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='div-chart'>
+                <div class='create-chart'>
+                    <div class='intern-chart'>
+                        <div id="intra-extra" class='charts cchart'></div>
+                        <div class='copy-chart'>
+                            <div class='medium-line'></div>
+                            <div class='my-line'></div>
+                        </div>
+                    </div>
+                    <div class='external-chart'>
+                        <div class='legend'>
+                            <span>Intra</span>
+                        </div>
+                        <div class='legend'>
+                            <span>Extra</span>
+                        </div>
+                    </div>
+                </div>
+                <div class='card-why'>
+                    <div class='reasons'>
+                        <div class=reason-title>
+                            <span>O que é?</span>
+                        </div>
+                        <div class='reason-text'>
+                            <p>Mede se o seu perfil é mais alinhado para o Intraempreendedorismo ou para empreender fora.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -144,9 +323,9 @@
             ["Element", "Porcentagem", {
                 role: "style"
             }],
-            ["Tec", tec, "#FC790D"],
-            ["Comp", comp, "#1F51FA"],
-            ["Org", org, "#FCED07"],
+            ["Técnica", tec, "#FC790D"],
+            ["Comportamentais", comp, "#1F51FA"],
+            ["Organizacionais", org, "#FCED07"],
 
         ]);
 
@@ -269,7 +448,8 @@
                 'empreend': '{{Empreend}}',
                 'intra': '{{Intra}}',
                 'lideranca': '{{Lideranca}}',
-                'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+                'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
+                'key': '{{Key}}'
             },
             success: function(data, textStatus, jqXHR) {
                 alert(data);
