@@ -1,183 +1,198 @@
-.main-div{
-    display:flex;
-    flex-direction:column;
-    align-items: center; 
+.main-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    background-color:#fff;
+    background-color: #fff;
 }
 
-.my-card{
-    background-color:#F6F6F6;
-    border:2px solid #fff;
-    border-radius:8px;
-    width:40%;
-    height:15vh;
-    margin-top:15px;
-    margin-bottom:15px;
-    padding:0px 15px;
+.my-card {
+    background-color: #F6F6F6;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    width: 80%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 0px 15px;
 }
 
-.title-card{
-    width:100%;
-    height:40%;
+.title-card {
+    width: 100%;
+    height: 40%;
 }
 
-.title-card p{
-    font-family:AprovaSans, sans-serif;
-    font-size:21px;
-    color:#000;   
-    margin-top:10px;
-    letter-spacing:1.5px;
+.title-card p {
+    font-family: AprovaSans, sans-serif;
+    font-size: 2.1rem;
+    color: #000;
+    margin-top: 10px;
+    letter-spacing: 1.5px;
 }
 
-#header-card{
-    width:100%;
-    height:20vh;
-    margin:auto;
+#header-card {
+    width: 100%;
+    height: 20vh;
+    margin: auto;
 }
 
-#card-image{
-    background-color:#fff
+#card-image {
+    background-color: #fff
 }
 
-#card-image img{
-    position:relative;
-    left:50%;
-    top:50%;
-    transform:translate(-50%, -50%);
-    width:300px;
-    height:80px;
+#card-image img {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 80px;
 }
 
-#informations{
-    width:100%;
-    height:auto;
+#informations {
+    width: 100%;
+    height: auto;
 }
 
-#title-forms{
-    height:8vh;
-    display:flex;
-    background-color:#00E88F;
+#title-forms {
+    display: flex;
+    background-color: #00E88F;
 }
 
-#main-title p{
+#main-title p {
     font-family: VanguardCF, sans-serif;
-    font-size: 32px;
+    font-size: 3.2rem;
     line-height: 1;
     text-transform: uppercase;
-    margin:0px;
-    margin-top:3px;
+    margin: 0px;
+    margin-top: 3px;
 }
 
-#title-forms div{
-    width:50%;
+#title-forms div {
+    width: 50%;
 }
 
-#info-quiz span{
-    color:red;
-    font-size:16px;
+#info-quiz span {
+    color: red;
+    font-size: 16px;
     font-family: AprovaSans, sans-serif;
     letter-spacing: 1.5px;
-    position:relative;
-    left:60%;
-    top:50%;
-    transform:translate(-60%, -50%);
+    position: relative;
+    left: 60%;
+    top: 50%;
+    transform: translate(-60%, -50%);
 }
 
-.lock{
-    color:red;
-    font-size:18px;
+.lock {
+    color: red;
+    font-size: 18px;
     font-family: AprovaSans, sans-serif;
 }
 
-input{
-    border:none;
+input {
+    border: none;
     border-bottom: 2px solid #333;
-    width:20vw;
+    width: 20vw;
     font-family: AprovaSans, sans-serif;
-    letter-spacing:1.5px;
-    font-size:18px;
-    color:#333;
-    outline:none;
-    transition:border 500ms ease-in-out;
-    background-color:#F6F6F6;
+    letter-spacing: 1.5px;
+    font-size: 18px;
+    color: #333;
+    outline: none;
+    transition: border 500ms ease-in-out;
+    background-color: #F6F6F6;
 }
 
-input:focus{
-    border-color:#00E88F;
+input:focus {
+    border-color: #00E88F;
 }
 
-select{
-    color:#333;
-    width:20vw;
+select {
+    color: #333;
+    width: 100%;
+    margin: 2rem 1rem;
     font-family: AprovaSans, sans-serif;
-    letter-spacing:1.5px;
-    font-size:18px;
-    outline:none;
-    border:none;
+    letter-spacing: 1.5px;
+    font-size: 18px;
+    outline: none;
+    border: none;
     border-bottom: 2px solid #333;
-    background-color:#F6F6F6;
-    transition:border 500ms ease-in-out;
+    background-color: #F6F6F6;
+    transition: border 500ms ease-in-out;
 }
 
-select:hover{
-    cursor:pointer;
+select:hover {
+    cursor: pointer;
 }
 
-select:focus{
-    border-color:#00E88F;
+select:focus {
+    border-color: #00E88F;
 }
 
-#card-actions{
-    width:100%;
+#card-actions {
+    width: 100%;
 }
 
-#card-actions-centralize{
-    width:40%;
-    height:5vh;
-    margin-top:15px;
-    margin-bottom:15px;
-    padding:0px 15px;
-    display:flex;
-    flex-direction:row;
+#card-actions-centralize {
+    width: 40%;
+    height: 5vh;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 0px 15px;
+    display: flex;
+    flex-direction: row;
 }
 
-.half-card-action{
-    width:50%
+.half-card-action {
+    width: 50%
 }
 
-#btn-send{
-    background-color:#00E88F;
-    color:#333;
-    padding:10px 20px;
+#btn-send {
+    background-color: #00E88F;
+    color: #333;
+    padding: 10px 20px;
     border-radius: 8px;
     font-family: AprovaSans, sans-serif;
-    letter-spacing:1.5px;
-    font-size:15px;
-    font-weight:bold;
+    letter-spacing: 1.5px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
-#btn-send:hover{
-    cursor:pointer;
-    color:#00E88F;
+#btn-send:hover {
+    cursor: pointer;
+    color: #00E88F;
     background-color: #000;
 }
 
-#btn-clear{
-    position:relative;
-    left:40%;
-    top:0%;
-    transform:translate(-40%, -0%);
+#btn-clear {
+    position: relative;
+    left: 40%;
+    top: 0%;
+    transform: translate(-40%, -0%);
     font-family: AprovaSans, sans-serif;
-    letter-spacing:1.5px;
-    font-size:16px;
-    font-weight:bold;
-    color:#00E88F;
+    letter-spacing: 1.5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #00E88F;
 }
 
-#btn-clear:hover{
-    cursor:pointer;
+#btn-clear:hover {
+    cursor: pointer;
     background-color: #000;
-    padding:8px 5px;
-    border-radius:8px;
+    padding: 8px 5px;
+    border-radius: 8px;
+}
+
+#my-form {
+    visibility: hidden;
+}
+
+@media (max-width: 600px) {
+    #main-title {
+        display: block;
+    }
+    #main-title p {
+        font-size: 2.26rem !important;
+        display: block;
+    }
 }

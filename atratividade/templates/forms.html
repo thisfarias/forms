@@ -1,67 +1,55 @@
-{%extends 'structure.html'%}
-{%load static%}
+{%extends 'structure.html'%} {%load static%} {%block title%}Questionário: Atratividade Mercado{%endblock%} {%block static%}
+<link rel='stylesheet' href='{%static "css/forms.css"%}'> {%endblock%} {%block fonts%}{%endblock%} {%block content%}
+<div id='header-card' class='main-div'>
+    <div id='card-image' class='my-card'>
+        <a href='/'><img src='{%static "image/logo.png"%}'></a>
+    </div>
+</div>
 
-
-{%block title%}Atratividade Mercado{%endblock%}
-
-{%block static%}
-    <link rel='stylesheet' href='{%static "css/forms.css"%}'>
-{%endblock%}
-
-{%block fonts%}{%endblock%}
-
-{%block content%}
-    {%csrf_token%}
-    <div id='header-card' class='main-div'>
-        <div id='card-image' class='my-card'>
-            <a href='/'><img src='{%static "image/logo.png"%}'></a>
+<div id='informations' class='main-div'>
+    <div id='title-forms' class='my-card'>
+        <div id='main-title' class='title-card'>
+            <p>{%block myTitle%}Questionário: Atratividade no Mercado{%endblock%}</p>
+        </div>
+        <div id='info-quiz'>
+            <span>* Obrigatório</span>
         </div>
     </div>
-
-    <div id='informations' class='main-div'>
-        <div id='title-forms' class='my-card'>
-            <div id='main-title' class='title-card'>
-                <p>{%block myTitle%}Atratividade Mercado{%endblock%}</p>
-            </div>
-            <div id='info-quiz'>
-                <span>* Obrigatório</span>
-            </div>
+    <div id='my-name' class='my-info my-card card-color'>
+        <div class='title-card title-card'>
+            <p>
+                Nome
+                <span class='lock'>*</span>
+            </p>
         </div>
-        <div id='my-name' class='my-info my-card'>
-            <div class='title-card title-card'>
-                <p>
-                    Nome
-                    <span class='lock'>*</span>
-                </p>
-            </div>
-            <div>
-                <input id='name' type="text" required="" placeholder="Sua resposta">
-            </div>
-        </div>
-        <div id='my-mail' class='my-info my-card'>
-            <div class='title-card'>
-                <p>
-                    E-mail
-                    <span class='lock'>*</span>
-                </p>
-            </div>
-            <div>
-                <input id='email' type="text" required="" placeholder="Sua resposta">
-            </div>
+        <div>
+            <input id='name' class='verification' type="text" placeholder="Sua resposta">
         </div>
     </div>
+    <div id='my-mail' class='my-info my-card card-color'>
+        <div class='title-card'>
+            <p>
+                E-mail
+                <span class='lock'>*</span>
+            </p>
+        </div>
+        <div>
+            <input id='email' class='verification' type="text" placeholder="Sua resposta">
+        </div>
+    </div>
+</div>
 
-    <div id='session-questions' class='main-div'>
-        {%for question in questions%}
-            <div class='my-card'>
-                <div class='title-card'>
-                    <p>
-                        {{question}}
-                        <span class='lock'>*</span>
-                    </p>
-                </div>
-                <div class='option-card-question'>
-                    <select class='my-option'>
+<div id='session-questions' class='main-div'>
+    {%for question in questions%}
+    <div class='my-card card-color'>
+        <div class='title-card'>
+            <p>
+                {{question}}
+                <span class='lock'>*</span>
+            </p>
+        </div>
+        <div class='option-card-question'>
+            <select class='my-option verification'>
                         <option disabled selected value>Selecione sua resposta</option>
                         <option value='Não tenho opinião'>Não tenho opinião</option>
                         <option value='Discordo totalmente'>Discordo totalmente</option>
@@ -69,48 +57,55 @@
                         <option value='Concordo'>Concordo</option>
                         <option value='Concordo totalmente'>Concordo totalmente</option>
                     </select>
-                </div>
-            </div>
-        {%endfor%}
-    </div>
-
-    
-    <div id='card-actions' class='main-div'>
-        <div id='card-actions-centralize'>
-            <div class='half-card-action'>
-                <span id='btn-send'>Enviar</span>
-            </div>
-            <div class='half-card-action'>
-                <a href='/atratividade/forms'><span id='btn-clear'>Limpar Formulário</span></a>
-            </div>
         </div>
     </div>
-{%endblock%}
+    {%endfor%}
+</div>
 
-{%block scripts%}
-    <script>
-        $('#btn-send').click(function(){
-            var myInfo = '';
-            var myList = [];
-            $('.my-option').each(function(index){
-                if($(this).val() != null){
-                    myList.push($(this).val());
-                }
+
+<div id='card-actions' class='main-div'>
+    <div id='card-actions-centralize'>
+        <div class='half-card-action'>
+            <span id='btn-send'>Enviar</span>
+        </div>
+        <div class='half-card-action'>
+            <a href='/atratividade/forms'><span id='btn-clear'>Limpar Formulário</span></a>
+        </div>
+    </div>
+</div>
+
+<form id="my-form" action="/atratividade/charts" method="post">{%csrf_token%}
+    <input type='text' id='form-name' name='form-name' required>
+    <input type='text' id='form-email' name='form-email'> {%for question in questions%}
+    <input type='text' class='form-option' name='form-option-{{forloop.counter}}'> {%endfor%}
+    <button type='Submit'>Add</button>
+</form>
+{%endblock%} {%block scripts%}
+<script>
+    $('#btn-send').click(function() {
+        var condition = true;
+        $('.verification').each(function(index) {
+            if ($(this).val() === null || $(this).val() === '') {
+                condition = false
+                $('.card-color:eq({0})'.replace('{0}', index)).attr('style', 'background-color:#00E88F ');
+            }
+        })
+        if (condition == true) {
+            var name = $('#name').val();
+            var mail = $('#email').val();
+            var option = '';
+            var index = 0;
+            $('#form-name').val(name);
+            $('#form-email').val(mail);
+            $('.my-option').each(function(index) {
+                if ($(this).val() != null) {
+                    option = $(this).val();
+                    $('.form-option:eq({0})'.replace('{0}', index)).val(option);
+                    index++;
+                };
             });
-            $.ajax({
-                type:'POST',
-                url:'{%url "sendAnswersAtratividade"%}',
-                data:{
-                    'name':$('#name').val(),
-                    'email':$('#email').val(),
-                    'myList':JSON.stringify(myList),
-                    'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val()
-                },
-                success:function(data, textStatus, jqXHR){
-                    window.location.href = '{%url "forms"%}'
-                }, 
-                dataType:'html'   
-            });
-        });
-    </script>
+            $('form').submit();
+        }
+    });
+</script>
 {%endblock%}
