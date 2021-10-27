@@ -74,10 +74,11 @@
     </div>
 </div>
 
-<form id="my-form" action="/atratividade/charts" method="post">{%csrf_token%}
+<form id="my-form" action="/atratividade/charts/{{key}}" method="post">{%csrf_token%}
     <input type='text' id='form-name' name='form-name' required>
     <input type='text' id='form-email' name='form-email'> {%for question in questions%}
     <input type='text' class='form-option' name='form-option-{{forloop.counter}}'> {%endfor%}
+    <input type='text' id='form-question1' name='form-key' value='{{key}}'>
     <button type='Submit'>Add</button>
 </form>
 {%endblock%} {%block scripts%}

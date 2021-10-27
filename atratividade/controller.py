@@ -2,6 +2,8 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import uuid
 
+from . import models
+
 def arguments():
     questions = [
         'Em cada ação, pergunte-se se deu o seu melhor',
@@ -45,7 +47,7 @@ def arguments():
     ]
     return questions
 
-def profile_category(myList):
+def profile_category(myList, key):
     args = myList[2:]
     arguments_category = [
         'CA',
@@ -202,11 +204,9 @@ def profile_category(myList):
     myEmpr = (myEmpr/(6*11))*100
     myInfra = (myInfra/(6*10))*100
     myLid = (myLid/(6*12))*100
+    insert_client([myList[0], myList[1], myOrg, myTecn, myComp, myEmpr, myInfra, myLid, total], key)
     return [myList[0], myList[1], myOrg, myTecn, myComp, myEmpr, myInfra, myLid, total]
 
-
-def update_data():
-    pass
 
 def generate_key():
     my_key = uuid.uuid4()
@@ -224,6 +224,7 @@ def send_mail(my_list):
         server.ehlo()
         server.login(my_mail, my_pass)
         msg = MIMEMultipart('alternative')
+
         html = '''
         <h1 style='font-family:Arial'>Olá <span style='color:#00E88F;'><b>{}</b></span></h1>\n
         <p style='font-family:Arial'>Segue o resultado do seus forms:</p>\n
@@ -256,3 +257,33 @@ def send_mail(my_list):
 
         server.sendmail(msg['From'],  msg['To'], msg.as_string())
         server.quit()
+
+def insert_client(my_list, key):
+    p = models.Client(
+        key = key,
+        name = my_list[0],
+        email = my_list[1],
+        organizacao = float(my_list[3]),
+        tecnica = float(my_list[4]),
+        comportamento = float(my_list[5]),
+        empreendedorismo =  float(my_list[6]),
+        intraempreendedorismo = float(my_list[7]),
+        lideranca = float(my_list[8]),
+        geral = float(my_list[2])
+    )
+    p.save()
+
+def get_client(key):
+    query = models.Client.objects.get(key=key)
+    return [
+        query.name,
+        query.email,
+        query.organizacao,
+        query.tecnica,
+        query.comportamento,
+        query.empreendedorismo,
+        query.intraempreendedorismo,
+        query.lideranca,
+        query.geral,
+        query.key
+    ]

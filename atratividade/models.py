@@ -8,6 +8,7 @@ class Client(models.Model):
     email = models.CharField(max_length=255, blank=False)
     organizacao = models.FloatField(default=0, blank=False, null=False)
     tecnica = models.FloatField(default=0, blank=False, null=False)
+    comportamento = models.FloatField(default=0, blank=False, null=False)
     empreendedorismo = models.FloatField(default=0, blank=False, null=False)
     intraempreendedorismo = models.FloatField(default=0, blank=False, null=False)
     lideranca = models.FloatField(default=0, blank=False, null=False)
