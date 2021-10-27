@@ -18,11 +18,6 @@
     padding: 0px 15px;
 }
 
-.title-card {
-    width: 100%;
-    height: 40%;
-}
-
 .title-card p {
     font-family: AprovaSans, sans-serif;
     font-size: 2.1rem;
@@ -69,19 +64,11 @@
     margin-top: 3px;
 }
 
-#title-forms div {
-    width: 50%;
-}
-
-#info-quiz span {
+#info-quiz {
     color: red;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-family: AprovaSans, sans-serif;
     letter-spacing: 1.5px;
-    position: relative;
-    left: 60%;
-    top: 50%;
-    transform: translate(-60%, -50%);
 }
 
 .lock {
@@ -91,16 +78,17 @@
 }
 
 input {
-    border: none;
-    border-bottom: 2px solid #333;
-    width: 20vw;
+    color: #333;
+    width: 80%;
+    margin: 2rem 1rem;
     font-family: AprovaSans, sans-serif;
     letter-spacing: 1.5px;
-    font-size: 18px;
-    color: #333;
+    font-size: 1.8rem;
     outline: none;
-    transition: border 500ms ease-in-out;
+    border: none;
+    border-bottom: 2px solid #333;
     background-color: #F6F6F6;
+    transition: border 500ms ease-in-out;
 }
 
 input:focus {
@@ -109,7 +97,7 @@ input:focus {
 
 select {
     color: #333;
-    width: 100%;
+    width: 80%;
     margin: 2rem 1rem;
     font-family: AprovaSans, sans-serif;
     letter-spacing: 1.5px;
@@ -134,13 +122,13 @@ select:focus {
 }
 
 #card-actions-centralize {
-    width: 40%;
-    height: 5vh;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    width: 80%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     padding: 0px 15px;
     display: flex;
-    flex-direction: row;
 }
 
 .half-card-action {
@@ -154,7 +142,7 @@ select:focus {
     border-radius: 8px;
     font-family: AprovaSans, sans-serif;
     letter-spacing: 1.5px;
-    font-size: 15px;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -171,7 +159,7 @@ select:focus {
     transform: translate(-40%, -0%);
     font-family: AprovaSans, sans-serif;
     letter-spacing: 1.5px;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: bold;
     color: #00E88F;
 }

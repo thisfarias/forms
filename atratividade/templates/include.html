@@ -1,0 +1,22 @@
+{%extends 'structure.html'%}
+{%load static%}
+
+{%block title%}Gráfico Atratividade{%endblock%}
+
+{%block static%}
+    <link rel='stylesheet' href='{%static "css/graphic.css"%}'>
+{%endblock%}
+
+{%block fonts%}{%endblock%}
+
+{%block navbar%}
+    <div id='navbar'>
+         <div id='div-logo'>
+            <a href='/'><img id='logo' src='{%static "image/logo.png"%}'></a>
+         </div>
+    </div>
+{%endblock%}
+
+{%block content%}
+    <div id='fbody'></div>
+{%endblock%}

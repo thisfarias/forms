@@ -1,137 +1,149 @@
-{%extends 'structure.html'%}
-{%load static%}
-
-{%block title%}Gráfico Atratividade{%endblock%}
-
-{%block static%}
-    <link rel='stylesheet' href='{%static "css/charts.css"%}'>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-{%endblock%}
-
-{%block fonts%}{%endblock%}
-
-{%block navbar%}
-    <div id='navbar'>
-         <div id='div-logo'>
-            <a href='/'><img id='logo' src='{%static "image/logo.png"%}'></a>
-         </div>
+{%extends 'structure.html'%} {%load static%} {%block title%}Gráfico Atratividade{%endblock%} {%block static%}
+<link rel='stylesheet' href='{%static "css/charts.css"%}'>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+{%endblock%} {%block fonts%}{%endblock%} {%block navbar%}
+<div id='navbar'>
+    <div id='div-logo'>
+        <a href='/'><img id='logo' src='{%static "image/logo.png"%}'></a>
     </div>
-{%endblock%}
-
-{%block content%}
-    {%csrf_token%}
-    <section id='first-section' class='default-section'>
-        <div class='content-in-div'>
-            <div class='content-side'>
-                <div class='content-vertical'>
-                    <div class='info'>
-                        <div class='info-icon'>
-                            <img src='{%static "image/user.png"%}' class='icon'>
-                        </div>
-                        <div class='info-input'>
-                            <input id='name' class='input' value='{{Name}}' disabled>
-                        </div>
+</div>
+{%endblock%} {%block content%} {%csrf_token%}
+<section id='first-section' class='default-section'>
+    <div class='content-in-div'>
+        <div class='content-side'>
+            <div class='content-vertical'>
+                <div class='info'>
+                    <div class='info-icon'>
+                        <img src='{%static "image/user.png"%}' class='icon'>
                     </div>
-                    <div class='info'>
-                        <div class='info-icon'>
-                            <img src='{%static "image/arroba.png"%}' class='icon'>
-                        </div>
-                        <div class='info-input'>
-                            <input id='name' class='input' value='{{Email}}' disabled>
-                        </div>
+                    <div class='info-input'>
+                        <input id='name' class='input' value='{{Name}}' disabled>
                     </div>
                 </div>
-                <div class='content-vertical'>
-                    <div class='div-title'>
-                        <p>Atratividade Geral</p>
+                <div class='info'>
+                    <div class='info-icon'>
+                        <img src='{%static "image/arroba.png"%}' class='icon'>
                     </div>
-                    <div class='div-chart'>
-                        <div id="atratividade_geral" class='charts'></div>
-                    </div>
-                </div>
-            </div>
-            <div class='content-side'>
-                <div class='content-vertical'>
-                    <div class='div-title'>
-                        <p>Habilidades</p>
-                    </div>
-                    <div class='div-chart'>
-                        <div id="habilidades" class='charts'></div>
-                    </div>
-                </div>
-                <div class='content-vertical'>
-                    <div class='div-title'>
-                        <p>Liderança</p>
-                    </div>
-                    <div class='div-chart'>
-                        <div id="liderança" class='charts'></div>
+                    <div class='info-input'>
+                        <input id='name' class='input' value='{{Email}}' disabled>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <section id='second-section' class='default-section'>
-        <div class='content-in-div'>
-            <div class='content-side'>
-                <div class='div-title'>
-                    <p>Empreendedorismo</p>
-                </div>
-                <div class='div-chart'>
-                    <div id="empreend" class='charts'></div>
-                </div>
+    </div>
+    <div class='content-in-div'>
+        <div class='content-vertical'>
+            <div class='div-title'>
+                <p>Atratividade Geral</p>
             </div>
-            <div class='content-side'>
+            <div class='div-chart'>
+                <div id="atratividade_geral" class='charts'></div>
+            </div>
+        </div>
+    </div>
+    <div class='content-in-div'>
+        <div class='content-side'>
+            <div class='content-vertical'>
                 <div class='div-title'>
-                    <p>Tendências</p>
+                    <p>Habilidades</p>
                 </div>
                 <div class='div-chart'>
-                    <div id="tendências" class='charts'></div>
+                    <div id="habilidades" class='charts'></div>
                 </div>
             </div>
         </div>
-    </section>
-{%endblock%}
+    </div>
+    <div class='content-in-div'>
+        <div class='content-vertical'>
+            <div class='div-title'>
+                <p>Liderança</p>
+            </div>
+            <div class='div-chart'>
+                <div id="liderança" class='charts'></div>
+            </div>
+        </div>
+    </div>
+    <div class='content-in-div'>
+        <div class='content-vertical'>
+            <div class='div-title'>
+                <p>Empreendedorismo</p>
+            </div>
+            <div class='div-chart'>
+                <div id="empreend" class='charts'></div>
+            </div>
+        </div>
+    </div>
+    <div class='content-in-div'>
+        <div class='content-vertical'>
+            <div class='div-title'>
+                <p>Tendências</p>
+            </div>
+            <div class='div-chart'>
+                <div id="tendências" class='charts'></div>
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock%} {%block footer%}{%endblock%} {%block scripts%}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    var total = parseInt('{{Total}}');
+    google.charts.load("current", {
+        packages: ["corechart"]
+    });
+    google.charts.setOnLoadCallback(drawChart);
 
-{%block footer%}{%endblock%}
-{%block scripts%}
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        var total = parseInt('{{Total}}');
-        google.charts.load("current", {packages:["corechart"]});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-          var data = google.visualization.arrayToDataTable([
-            ["Element", "Porcentagem", { role: "style" } ],
-            ["Atratividade Geral", total, "#00E88F"]
-          ]);
-    
-          var view = new google.visualization.DataView(data);
-          view.setColumns([0, 1,
-                           { calc: "stringify",
-                             sourceColumn: 1,
-                             type: "string",
-                             role: "annotation" },
-                           2]);
-    
-          var options = {
-            width: '75%',
-            height: '100%',
-            bar: {groupWidth: "35%"},
-            legend: { position: "none" },
-          };
-          var chart = new google.visualization.BarChart(document.getElementById("atratividade_geral"));
-          chart.draw(view, options);
-        }
-    </script>
-    <script type="text/javascript">
-        var tec = parseInt('{{Tecnica}}');
-        var comp = parseInt('{{Comportamental}}');
-        var org = parseInt('{{Organizacao}}');
-        google.charts.load("current", {packages:["corechart"]});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
+    function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ["Element", "Porcentagem", { role: "style" } ],
+            ["Element", "Porcentagem", {
+                role: "style"
+            }],
+            ["Atratividade Geral", total, "#00E88F"]
+        ]);
+
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1, {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation",
+                trendline: {
+                    0: {
+                        visibleInLegend: true,
+                    }
+                }
+            },
+            2
+        ]);
+
+        var options = {
+            width: '100%',
+            height: '100%',
+            bar: {
+                groupWidth: "35%"
+            },
+            legend: {
+                position: "none"
+            },
+        };
+        var chart = new google.visualization.BarChart(document.getElementById("atratividade_geral"));
+        chart.draw(view, options);
+    }
+</script>
+<script type="text/javascript">
+    var tec = parseInt('{{Tecnica}}');
+    var comp = parseInt('{{Comportamental}}');
+    var org = parseInt('{{Organizacao}}');
+    google.charts.load("current", {
+        packages: ["corechart"]
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ["Element", "Porcentagem", {
+                role: "style"
+            }],
             ["Tec", tec, "#FC790D"],
             ["Comp", comp, "#1F51FA"],
             ["Org", org, "#FCED07"],
@@ -139,100 +151,130 @@
         ]);
 
         var view = new google.visualization.DataView(data);
-        view.setColumns([0, 1,
-                        { calc: "stringify",
-                            sourceColumn: 1,
-                            type: "string",
-                            role: "annotation" },
-                        2]);
+        view.setColumns([0, 1, {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation"
+            },
+            2
+        ]);
 
         var options = {
-            width:'75%',
-            height:'100%',
-            bar: {groupWidth: "75%"},
-            legend: { position: "none" },
+            width: '100%',
+            height: '100%',
+            bar: {
+                groupWidth: "75%"
+            },
+            legend: {
+                position: "none"
+            },
         };
         var chart = new google.visualization.BarChart(document.getElementById("habilidades"));
         chart.draw(view, options);
-        }
-    </script>
-    <script type="text/javascript">
-        var lideranca = parseInt('{{Lideranca}}');
-        google.charts.load("current", {packages:["corechart"]});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-          var data = google.visualization.arrayToDataTable([
-            ["Element", "Porcentagem", { role: "style" } ],
+    }
+</script>
+<script type="text/javascript">
+    var lideranca = parseInt('{{Lideranca}}');
+    google.charts.load("current", {
+        packages: ["corechart"]
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ["Element", "Porcentagem", {
+                role: "style"
+            }],
             ["Liderança", lideranca, "#FE0502"]
-          ]);
-    
-          var view = new google.visualization.DataView(data);
-          view.setColumns([0, 1,
-                           { calc: "stringify",
-                             sourceColumn: 1,
-                             type: "string",
-                             role: "annotation" },
-                           2]);
-    
-          var options = {
-            width:'75%',
-            height:'100%',
-            bar: {groupWidth: "35%"},
-            legend: { position: "none" },
-          };
-          var chart = new google.visualization.BarChart(document.getElementById("liderança"));
-          chart.draw(view, options);
-        }
-    </script>
-    <script type="text/javascript">
-        var extra = parseInt('{{Empreend}}');
-        var intra = parseInt('{{Intra}}');
-        google.charts.load("current", {packages:["corechart"]});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-          var data = google.visualization.arrayToDataTable([
-            ["Element", "Porcentagem", { role: "style" } ],
+        ]);
+
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1, {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation"
+            },
+            2
+        ]);
+
+        var options = {
+            width: '100%',
+            height: '100%',
+            bar: {
+                groupWidth: "35%"
+            },
+            legend: {
+                position: "none"
+            },
+        };
+        var chart = new google.visualization.BarChart(document.getElementById("liderança"));
+        chart.draw(view, options);
+    }
+</script>
+<script type="text/javascript">
+    var extra = parseInt('{{Empreend}}');
+    var intra = parseInt('{{Intra}}');
+    google.charts.load("current", {
+        packages: ["corechart"]
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ["Element", "Porcentagem", {
+                role: "style"
+            }],
             ["Intra", intra, "#8710F7"],
             ["Extra", extra, "#2AEC0B"],
-          ]);
-    
-          var view = new google.visualization.DataView(data);
-          view.setColumns([0, 1,
-                           { calc: "stringify",
-                             sourceColumn: 1,
-                             type: "string",
-                             role: "annotation" },
-                           2]);
-    
-          var options = {
-            width:'75%',
-            height:'100%',
-            bar: {groupWidth: "35%"},
-            legend: { position: "none" },
-          };
-          var chart = new google.visualization.BarChart(document.getElementById("empreend"));
-          chart.draw(view, options);
-        }
-    </script>
-    <script>
-        $.ajax({
-            url:'{%url "mail"%}',
-            type:'POST',
-            data:{
-                'name':$('#name').val(),
-                'email':'{{Email}}',
-                'total':'{{Total}}',
-                'organizacao':'{{Organizacao}}',
-                'tecnica':'{{Tecnica}}',
-                'compartamental':'{{Comportamental}}',
-                'empreend':'{{Empreend}}',
-                'intra':'{{Intra}}',
-                'lideranca':'{{Lideranca}}',
-                'csrfmiddlewaretoken':$('input[name=csrfmiddlewaretoken]').val()
+        ]);
+
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1, {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation"
             },
-            success:function(data, textStatus, jqXHR){
+            2
+        ]);
+
+        var options = {
+            width: '100%',
+            height: '100%',
+            bar: {
+                groupWidth: "35%"
+            },
+            legend: {
+                position: "none"
+            },
+        };
+        var chart = new google.visualization.BarChart(document.getElementById("empreend"));
+        chart.draw(view, options);
+    }
+</script>
+<script>
+    if ('{{Condition}}' == 1) {
+        $.ajax({
+            url: '{%url "mail"%}',
+            type: 'POST',
+            data: {
+                'name': $('#name').val(),
+                'email': '{{Email}}',
+                'total': '{{Total}}',
+                'organizacao': '{{Organizacao}}',
+                'tecnica': '{{Tecnica}}',
+                'compartamental': '{{Comportamental}}',
+                'empreend': '{{Empreend}}',
+                'intra': '{{Intra}}',
+                'lideranca': '{{Lideranca}}',
+                'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+            },
+            success: function(data, textStatus, jqXHR) {
                 alert(data);
             }
         })
-    </script>
+    }
+</script>
 {%endblock%}

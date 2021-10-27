@@ -39,7 +39,8 @@ def charts(request, key):
                 'Intra':my_list[6],
                 'Lideranca':my_list[7],
                 'Total':my_list[8],
-                'Key':key
+                'Key':key,
+                'Condition':1
             })
     if request.method == 'GET':
         print(key)
@@ -54,7 +55,8 @@ def charts(request, key):
                 'Intra':my_list[6],
                 'Lideranca':my_list[7],
                 'Total':my_list[8],
-                'Key':key
+                'Key':key,
+                'Condition':0
             })
 
 def email(request):
