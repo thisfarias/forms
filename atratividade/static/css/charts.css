@@ -1,7 +1,6 @@
 #navbar {
     align-items: center;
     justify-content: center;
-    width: 100%;
     padding: 15px
 }
 
@@ -77,9 +76,6 @@
 
 .reason-title {
     width: auto;
-}
-
-.reason-title span {
     font-family: AprovaSans, sans-serif;
     font-size: 1.8rem;
     letter-spacing: .3rem;
@@ -89,6 +85,7 @@
     background-color: #00E88F;
     padding: .2rem .5rem;
     border-radius: 10px;
+    width: fit-content
 }
 
 .reason-text {

@@ -4,7 +4,7 @@
 {%endblock%} {%block fonts%}{%endblock%} {%block navbar%}
 <div id='navbar'>
     <div id='div-logo'>
-        <a href='/'><img id='logo' src='{%static "image/logo.svg"%}'></a>
+        <a href='/'><img id='logo' src='{%static "image/logo.png"%}'></a>
     </div>
 </div>
 {%endblock%} {%block content%} {%csrf_token%}
@@ -37,11 +37,11 @@
                 <p>Atratividade Geral</p>
             </div>
             <div class='div-chart'>
-                <div id="atratividade_geral" class='charts'></div>
+                <div id="atratividade_geral" class='charts' style="width: auto; height: auto;"></div>
                 <div class='card-why'>
                     <div class='reasons'>
                         <div class=reason-title>
-                            <span>O que é?</span>
+                            O que é?
                         </div>
                         <div class='reason-text'>
                             <p>Mede o quão atrativo para o Mercado de Trabalho é o seu Perfil como um todo. Esse indicador leva em consideração todos os pontos desejados pelas principais empresas que recrutam hoje.</p>
@@ -49,7 +49,7 @@
                     </div>
                     <div class='reasons'>
                         <div class=reason-title>
-                            <span>O que é um bom resultado?</span>
+                            O que é um bom resultado?
                         </div>
                         <div class='reason-text'>
                             <p>Um bom resultado é aquele que está acima do mínimo que o Mercado pede. Um excelente resultado é aquele que é acima da linha da média do Mercado</p>
@@ -66,11 +66,11 @@
                     <p>Habilidades</p>
                 </div>
                 <div class='div-chart'>
-                    <div id="habilidades" class='charts'></div>
+                    <div id="habilidades" class='charts' style="width: auto; height: auto;"></div>
                     <div class='card-why'>
                         <div class='reasons'>
                             <div class=reason-title>
-                                <span>O que é?</span>
+                                O que é?
                             </div>
                             <div class='reason-text'>
                                 <p>Mede dentro do seu perfil, como estão as suas habilidades técnicas, comportamentais e organizacionais.</p>
@@ -92,11 +92,11 @@
                 <p>Liderança</p>
             </div>
             <div class='div-chart'>
-                <div id="liderança" class='charts'></div>
+                <div id="liderança" class='charts' style="width: auto; height: auto;"></div>
                 <div class='card-why'>
                     <div class='reasons'>
                         <div class=reason-title>
-                            <span>O que é?</span>
+                            O que é?
                         </div>
                         <div class='reason-text'>
                             <p>Mede como está o nível da sua habilidade de liderança frente o Mercado para assumir posições de liderança de pessoas.
@@ -105,7 +105,7 @@
                     </div>
                     <div class='reasons'>
                         <div class=reason-title>
-                            <span>O que é um bom resultado?</span>
+                            O que é um bom resultado?
                         </div>
                         <div class='reason-text'>
                             <p>Um bom resultado é aquele que está acima do mínimo que o Mercado pede. Um excelente resultado é aquele que é acima da linha da média do Mercado.</p>
@@ -121,7 +121,7 @@
                 <p>Empreendedorismo</p>
             </div>
             <div class='div-chart'>
-                <div id="empreend" class='charts'></div>
+                <div id="empreend" class='charts' style="width: auto; height: auto;"></div>
                 <div class='card-why'>
                     <div class='reasons'>
                         <div class=reason-title>
@@ -150,7 +150,7 @@
                         <div id="interno-externo" class='charts cchart'></div>
                         <div class='copy-chart'>
                             <div class='medium-line'></div>
-                            <div class='my-line'></div>
+                            <div id='result-interno-externo' class='my-line'></div>
                         </div>
                     </div>
                     <div class='external-chart'>
@@ -165,7 +165,7 @@
                 <div class='card-why'>
                     <div class='reasons'>
                         <div class=reason-title>
-                            <span>O que é?</span>
+                            O que é?
                         </div>
                         <div class='reason-text'>
                             <p>Mede se o seu perfil é mais alinhado para trabalhar dentro de uma empresa ou fora de uma empresa.</p>
@@ -179,7 +179,7 @@
                         <div id="lideranca-tecnica" class='charts cchart'></div>
                         <div class='copy-chart'>
                             <div class='medium-line'></div>
-                            <div class='my-line'></div>
+                            <div id='result-lideranca-tecnica' class='my-line'></div>
                         </div>
                     </div>
                     <div class='external-chart'>
@@ -194,7 +194,7 @@
                 <div class='card-why'>
                     <div class='reasons'>
                         <div class=reason-title>
-                            <span>O que é?</span>
+                            O que é?
                         </div>
                         <div class='reason-text'>
                             <p>Mede se o seu perfil é mais alinhado para trabalhar com liderança de pessoas ou com liderança técnica.</p>
@@ -208,7 +208,7 @@
                         <div id="processos-projetos" class='charts cchart'></div>
                         <div class='copy-chart'>
                             <div class='medium-line'></div>
-                            <div class='my-line'></div>
+                            <div id='result-processos-projetos' class='my-line'></div>
                         </div>
                     </div>
                     <div class='external-chart'>
@@ -223,7 +223,7 @@
                 <div class='card-why'>
                     <div class='reasons'>
                         <div class=reason-title>
-                            <span>O que é?</span>
+                            O que é?
                         </div>
                         <div class='reason-text'>
                             <p>Mede se o seu perfil é mais alinhado para trabalhar com processos internos de uma empresa ou com projetos.</p>
@@ -237,7 +237,7 @@
                         <div id="intra-extra" class='charts cchart'></div>
                         <div class='copy-chart'>
                             <div class='medium-line'></div>
-                            <div class='my-line'></div>
+                            <div id='result-intra-extra' class='my-line'></div>
                         </div>
                     </div>
                     <div class='external-chart'>
@@ -252,7 +252,7 @@
                 <div class='card-why'>
                     <div class='reasons'>
                         <div class=reason-title>
-                            <span>O que é?</span>
+                            O que é?
                         </div>
                         <div class='reason-text'>
                             <p>Mede se o seu perfil é mais alinhado para o Intraempreendedorismo ou para empreender fora.</p>
@@ -274,10 +274,10 @@
 
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ["Element", "Porcentagem", {
+            ["Element", "Porcentagem", "Medium", "Max", {
                 role: "style"
             }],
-            ["Atratividade Geral", total, "#00E88F"]
+            ["Atratividade Geral", total, "#00E88F"],
         ]);
 
         var view = new google.visualization.DataView(data);
@@ -304,6 +304,14 @@
             legend: {
                 position: "none"
             },
+            hAxis: {
+                title: 'Porcentagem',
+                minValue: 0,
+                maxValue: 100
+            },
+            trendlines: {
+                0: {}
+            }
         };
         var chart = new google.visualization.BarChart(document.getElementById("atratividade_geral"));
         chart.draw(view, options);
@@ -323,9 +331,9 @@
             ["Element", "Porcentagem", {
                 role: "style"
             }],
-            ["Técnica", tec, "#FC790D"],
-            ["Comportamentais", comp, "#1F51FA"],
-            ["Organizacionais", org, "#FCED07"],
+            ["Técnica", tec, "#00a3fe"],
+            ["Comportamentais", comp, "#16e6ce"],
+            ["Organizacionais", org, "#61d937"],
 
         ]);
 
@@ -340,14 +348,19 @@
         ]);
 
         var options = {
-            width: '100%',
-            height: '100%',
+            width: 'auto',
+            height: 'auto',
             bar: {
                 groupWidth: "75%"
             },
             legend: {
                 position: "none"
             },
+            hAxis: {
+                title: 'Porcentagem',
+                minValue: 0,
+                maxValue: 100
+            }
         };
         var chart = new google.visualization.BarChart(document.getElementById("habilidades"));
         chart.draw(view, options);
@@ -365,7 +378,7 @@
             ["Element", "Porcentagem", {
                 role: "style"
             }],
-            ["Liderança", lideranca, "#FE0502"]
+            ["Liderança", lideranca, "#00a3fe"]
         ]);
 
         var view = new google.visualization.DataView(data);
@@ -387,6 +400,12 @@
             legend: {
                 position: "none"
             },
+            hAxis: {
+                title: 'Porcentagem',
+                minValue: 0,
+                maxValue: 100
+            },
+
         };
         var chart = new google.visualization.BarChart(document.getElementById("liderança"));
         chart.draw(view, options);
@@ -405,8 +424,8 @@
             ["Element", "Porcentagem", {
                 role: "style"
             }],
-            ["Intra", intra, "#8710F7"],
-            ["Extra", extra, "#2AEC0B"],
+            ["Intra", intra, "#61d937"],
+            ["Extra", extra, "#61d937"],
         ]);
 
         var view = new google.visualization.DataView(data);
@@ -428,6 +447,11 @@
             legend: {
                 position: "none"
             },
+            hAxis: {
+                title: 'Porcentagem',
+                minValue: 0,
+                maxValue: 100
+            }
         };
         var chart = new google.visualization.BarChart(document.getElementById("empreend"));
         chart.draw(view, options);
@@ -456,5 +480,16 @@
             }
         })
     }
+</script>
+<script>
+    var internoExterno = (((parseFloat('{{Organizacao}}') + parseFloat('{{Tecnica}}') + parseFloat('{{Comportamental}}') + parseFloat('{{Lideranca}}')) / 4) - ((parseFloat('{{Lideranca}}') + parseFloat('{{Empreend}}')) / 2)) / 2;
+    var liderancaTecnica = (parseFloat('{{Lideranca}}') - parseFloat('{{Tecnica}}')) / 2;
+    var processosProjetos = (((parseFloat('{{Organizacao}}') + parseFloat('{{Tecnica}}') + parseFloat('{{Comportamental}}')) / 3) - ((parseFloat('{{Comportamental}}') + parseFloat('{{Lideranca}}') + parseFloat('{{Intra}}')) / 3)) / 2;
+    var intraExtra = (parseFloat('{{Empreend}}') - parseFloat('{{Intra}}')) / 2;
+
+    $('#result-interno-externo').css("margin-left", internoExterno.toString() + 'rem');
+    $('#result-lideranca-tecnica').css("margin-left", liderancaTecnica.toString() + 'rem');
+    $('#result-processos-projetos').css("margin-left", processosProjetos.toString() + 'rem');
+    $('#result-intra-extra').css("margin-left", intraExtra.toString() + 'rem');
 </script>
 {%endblock%}

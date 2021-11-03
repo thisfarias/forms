@@ -16,6 +16,7 @@
     margin-left: 1rem;
     margin-right: 1rem;
     padding: 0px 15px;
+    transition: 1s;
 }
 
 .title-card p {
@@ -77,6 +78,10 @@
     font-family: AprovaSans, sans-serif;
 }
 
+.verification {
+    background-color: transparent;
+}
+
 input {
     color: #333;
     width: 80%;
@@ -87,7 +92,6 @@ input {
     outline: none;
     border: none;
     border-bottom: 2px solid #333;
-    background-color: #F6F6F6;
     transition: border 500ms ease-in-out;
 }
 
@@ -105,7 +109,6 @@ select {
     outline: none;
     border: none;
     border-bottom: 2px solid #333;
-    background-color: #F6F6F6;
     transition: border 500ms ease-in-out;
 }
 
@@ -173,6 +176,7 @@ select:focus {
 
 #my-form {
     visibility: hidden;
+    display: flex;
 }
 
 @media (max-width: 600px) {

@@ -2,7 +2,7 @@
 <link rel='stylesheet' href='{%static "css/forms.css"%}'> {%endblock%} {%block fonts%}{%endblock%} {%block content%}
 <div id='header-card' class='main-div'>
     <div id='card-image' class='my-card'>
-        <a href='/'><img src='{%static "image/logo.svg"%}'></a>
+        <a href='/'><img src='{%static "image/logo.png"%}'></a>
     </div>
 </div>
 
@@ -20,7 +20,7 @@
                 <span class='lock'>*</span>
             </p>
         </div>
-        <div>
+        <div class='before-element'>
             <input id='name' class='verification' type="text" placeholder="Sua resposta">
         </div>
     </div>
@@ -31,7 +31,7 @@
                 <span class='lock'>*</span>
             </p>
         </div>
-        <div>
+        <div class='before-element'>
             <input id='email' class='verification' type="text" placeholder="Sua resposta">
         </div>
     </div>
@@ -54,7 +54,7 @@
                         <option value='Discordo em parte'>Discordo em parte</option>
                         <option value='Concordo'>Concordo</option>
                         <option value='Concordo totalmente'>Concordo totalmente</option>
-                    </select>
+            </select>
         </div>
     </div>
     {%endfor%}
@@ -66,7 +66,7 @@
         <div class='half-card-action'>
             <span id='btn-send'>Enviar</span>
         </div>
-        <div class='half-card-action'>
+        <div class='half-card-action before-element'>
             <a href='/atratividade/forms'><span id='btn-clear'>Limpar Formulário</span></a>
         </div>
     </div>
@@ -81,15 +81,23 @@
 </form>
 {%endblock%} {%block scripts%}
 <script>
+    var vtry = 0;
     $('#btn-send').click(function() {
         var condition = true;
         $('.verification').each(function(index) {
             if ($(this).val() === null || $(this).val() === '') {
                 condition = false
-                $('.card-color:eq({0})'.replace('{0}', index)).attr('style', 'background-color:#00E88F ');
+                $('.card-color:eq({0})'.replace('{0}', index)).attr('style', 'background-color:#F6492A');
+                //alert(index);
+            } else {
+                $('.card-color:eq({0})'.replace('{0}', index)).attr('style', 'background-color:#00E88F');
             }
         })
         if (condition == true) {
+            $('.verification').each(function(index) {
+                var myElement = ($(this).parent()).parent();
+                myElement.attr('style', 'background-color:#F6F6F6');
+            });
             var name = $('#name').val();
             var mail = $('#email').val();
             var option = '';
@@ -104,7 +112,16 @@
                 };
             });
             $('form').submit();
+            vtry++;
         }
     });
+    if (vtry === 0) {
+        $('.verification').on('change', function(e) {
+            var myElement = ($(this).parent()).parent();
+            if (myElement.css("background-color") == 'rgb(246, 73, 42)') {
+                myElement.attr('style', 'background-color:#F6F6F6');
+            };
+        });
+    }
 </script>
 {%endblock%}

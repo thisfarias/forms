@@ -6,21 +6,19 @@ from . import controller
 # Create your views here.
 
 def forms(request):
-    #return render(request, 'forms.html', {"questions":controller.arguments()})
-    key = controller.generate_key()
+    question = controller.arguments()
     question = [
         'Greys Anatomy precisa acabar',
-        'Eu sou gostoso',
         'Back-end >>>> Front-end',
-        'Em casa de ferreiro, não se olha os dentes',
-        'FIAP é facul de milionario',
         'Volta domigão do faustao'
     ]
+    key = controller.generate_key()
     return render(request, 'forms.html', {"questions":question, 'key':key})
 
 def business_rules(request, key):
         myList = [request.POST.get(obj) for obj in request.POST]
         del myList[0]
+        del myList[len(myList)-1]
         profile = controller.profile_category(myList, key)
         return profile
         
@@ -43,7 +41,6 @@ def charts(request, key):
                 'Condition':1
             })
     if request.method == 'GET':
-        print(key)
         my_list = controller.get_client(key)
         return render(request, 'charts.html', {
                 'Name':my_list[0],
