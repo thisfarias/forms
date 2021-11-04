@@ -274,10 +274,11 @@
 
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ["Element", "Porcentagem", "Medium", "Max", {
+            ["Element", "Porcentagem", {
                 role: "style"
             }],
             ["Atratividade Geral", total, "#00E88F"],
+
         ]);
 
         var view = new google.visualization.DataView(data);
@@ -285,21 +286,16 @@
                 calc: "stringify",
                 sourceColumn: 1,
                 type: "string",
-                role: "annotation",
-                trendline: {
-                    0: {
-                        visibleInLegend: true,
-                    }
-                }
+                role: "annotation"
             },
             2
         ]);
 
         var options = {
-            width: '100%',
-            height: '100%',
+            width: 'auto',
+            height: 'auto',
             bar: {
-                groupWidth: "35%"
+                groupWidth: "75%"
             },
             legend: {
                 position: "none"
@@ -308,11 +304,9 @@
                 title: 'Porcentagem',
                 minValue: 0,
                 maxValue: 100
-            },
-            trendlines: {
-                0: {}
             }
         };
+
         var chart = new google.visualization.BarChart(document.getElementById("atratividade_geral"));
         chart.draw(view, options);
     }
