@@ -1,0 +1,7 @@
+ {%for i in hability%} {%if forloop.counter == 0%}
+<p>1° {{i}} {{forloop.counter}}</p>
+{%elif forloop.counter|divisibleby:2%}
+<p>1° {{i}} {{forloop.counter}}</p>
+{%else%}
+<p>2° {{i}} {{forloop.counter}}</p>
+{%endif%} {%endfor%}

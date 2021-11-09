@@ -470,14 +470,14 @@
                 'key': '{{Key}}'
             },
             success: function(data, textStatus, jqXHR) {
-                alert(data);
+                //alert(data);
             }
         })
     }
 </script>
 <script>
     var internoExterno = (((parseFloat('{{Organizacao}}') + parseFloat('{{Tecnica}}') + parseFloat('{{Comportamental}}') + parseFloat('{{Lideranca}}')) / 4) - ((parseFloat('{{Lideranca}}') + parseFloat('{{Empreend}}')) / 2)) / 2;
-    var liderancaTecnica = (parseFloat('{{Lideranca}}') - parseFloat('{{Tecnica}}')) / 2;
+    var liderancaTecnica = (parseFloat('{{Tecnica}}') - parseFloat('{{Lideranca}}')) / 2;
     var processosProjetos = (((parseFloat('{{Organizacao}}') + parseFloat('{{Tecnica}}') + parseFloat('{{Comportamental}}')) / 3) - ((parseFloat('{{Comportamental}}') + parseFloat('{{Lideranca}}') + parseFloat('{{Intra}}')) / 3)) / 2;
     var intraExtra = (parseFloat('{{Empreend}}') - parseFloat('{{Intra}}')) / 2;
 

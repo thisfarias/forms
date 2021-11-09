@@ -1,0 +1,245 @@
+{%extends 'structure.html'%} {%load static%} {%block title%}Questionário: Atratividade Mercado{%endblock%} {%block static%}
+<link rel='stylesheet' href='{%static "css/ikigai_forms.css"%}'> {%endblock%} {%block fonts%}{%endblock%} {%block content%}
+<div id='card-header' class='main-div'>
+    <a href='/'><img src='{%static "image/log.svg"%}'></a>
+</div>
+<div class='main-div'>
+    <div id='title' class='cards'>
+        <div id='content-title' class='content'>
+            <p id='quest'>Questinário: IKIGAI</p>
+            <p id='title-legend'>* Obrigatório</p>
+        </div>
+    </div>
+</div>
+<div class='main-div div-quest'>
+    <div class='cards'>
+        <div class='copy-cards'>
+            <div class='content-inputs'>
+                <div class='info-title'>
+                    <p>
+                        Nome
+                        <span>*</span>
+                    </p>
+                </div>
+                <div class='info-answer'>
+                    <input id="name" class="verification answer" type="text" placeholder="Sua resposta">
+                </div>
+            </div>
+        </div>
+        <div class='copy-cards'>
+            <div class='content-inputs'>
+                <div class='info-title'>
+                    <p>
+                        E-mail
+                        <span>*</span>
+                    </p>
+                </div>
+                <div class='info-answer'>
+                    <input id="email" class="verification answer" type="text" placeholder="Sua resposta">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='main-div div-quest'>
+    <div class='cards cards-button'>
+        <div class='show-questions-cards copy-cards'>
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+            <input type="radio" name="radio-btn" id="radio4">
+            <div class='over-cards'>
+                <div class='session-cards first'>
+                    <div class='title-session'>
+                        <p>
+                            O que o mundo precisa
+                            <span>*</span>
+                        </p>
+                    </div>
+                    <div class='content-session'>
+                        {%for question in s1%} {%if forloop.counter|divisibleby:2%}
+                        <div class='questions color-false'>
+                            <div class='number-question'>
+                                <p>{{forloop.counter}}</p>
+                            </div>
+                            <div class='question'>
+                                <p>{{question}}</p>
+                            </div>
+                            <div class='choose'>
+                                <p class='preciso'></p>
+                            </div>
+                        </div>
+                        {%else%}
+                        <div class='questions color-true'>
+                            <div class='number-question'>
+                                <p>{{forloop.counter}}</p>
+                            </div>
+                            <div class='question'>
+                                <p>{{question}}</p>
+                            </div>
+                            <div class='choose'>
+                                <p class='preciso'></p>
+                            </div>
+                        </div>
+                        {%endif%} {%endfor%}
+                    </div>
+                </div>
+                <div class='session-cards'>
+                    <div class='title-session'>
+                        <p>
+                            O que sou muito bom
+                            <span>*</span>
+                        </p>
+                    </div>
+                    <div class='content-session'>
+                        {%for question in s2%} {%if forloop.counter|divisibleby:2%}
+                        <div class='questions color-false'>
+                            <div class='number-question'>
+                                <p>{{forloop.counter}}</p>
+                            </div>
+                            <div class='question'>
+                                <p>{{question}}</p>
+                            </div>
+                            <div class='choose'>
+                                <p class='bom'></p>
+                            </div>
+                        </div>
+                        {%else%}
+                        <div class='questions color-true'>
+                            <div class='number-question'>
+                                <p>{{forloop.counter}}</p>
+                            </div>
+                            <div class='question'>
+                                <p>{{question}}</p>
+                            </div>
+                            <div class='choose'>
+                                <p class='bom'></p>
+                            </div>
+                        </div>
+                        {%endif%} {%endfor%}
+                    </div>
+                </div>
+                <div class='session-cards'>
+                    <div class='title-session'>
+                        <p>
+                            O que as empresas pagam
+                            <span>*</span>
+                        </p>
+                    </div>
+                    <div class='content-session'>
+                        {%for question in s3%} {%if forloop.counter|divisibleby:2%}
+                        <div class='questions color-false'>
+                            <div class='number-question'>
+                                <p>{{forloop.counter}}</p>
+                            </div>
+                            <div class='question'>
+                                <p>{{question}}</p>
+                            </div>
+                            <div class='choose'>
+                                <p class='pago'></p>
+                            </div>
+                        </div>
+                        {%else%}
+                        <div class='questions color-true'>
+                            <div class='number-question'>
+                                <p>{{forloop.counter}}</p>
+                            </div>
+                            <div class='question'>
+                                <p>{{question}}</p>
+                            </div>
+                            <div class='choose'>
+                                <p class='pago'></p>
+                            </div>
+                        </div>
+                        {%endif%} {%endfor%}
+                    </div>
+                </div>
+                <div class='session-cards'>
+                    <div class='title-session'>
+                        <p>
+                            O que eu amo fazer
+                            <span>*</span>
+                        </p>
+                    </div>
+                    <div class='content-session'>
+                        {%for question in s4%} {%if forloop.counter|divisibleby:2%}
+                        <div class='questions color-false'>
+                            <div class='number-question'>
+                                <p>{{forloop.counter}}</p>
+                            </div>
+                            <div class='question'>
+                                <p>{{question}}</p>
+                            </div>
+                            <div class='choose'>
+                                <p class='amo'></p>
+                            </div>
+                        </div>
+                        {%else%}
+                        <div class='questions color-true'>
+                            <div class='number-question'>
+                                <p>{{forloop.counter}}</p>
+                            </div>
+                            <div class='question'>
+                                <p>{{question}}</p>
+                            </div>
+                            <div class='choose'>
+                                <p class='amo'></p>
+                            </div>
+                        </div>
+                        {%endif%} {%endfor%}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='buttons'>
+            <label for="radio1" class="manual-btn" id="r1"></label>
+            <label for="radio2" class="manual-btn" id="r2"></label>
+            <label for="radio3" class="manual-btn" id="r3"></label>
+            <label for="radio4" class="manual-btn" id="r4"></label>
+        </div>
+    </div>
+</div>
+<div class='main-div div-quest'>
+    <div class='cards'>
+        <div id='div-button'>
+            <span id='btn-send'>Enviar</span>
+        </div>
+    </div>
+</div>
+<form id='my-form' action="/ikigai/charts/{{key}}" method="post">{%csrf_token%}
+    <input type='text' name='form-key' value='{{key}}'>
+    <input type='text' name='name' class='my-info'>
+    <input type='text' name='email' class='my-info'>{%for i in loop%}
+    <input type='text' name='input-{{forloop.counter}}' class='off-input'> {%endfor%}
+    <button type='Submit'>Add</button>
+</form>
+<script>
+    $('.choose').click(function(e) {
+        if ($(this).children('p').text() != '') {
+            $(this).children('p').text('');
+        } else {
+            $(this).children('p').text('X');
+        };
+    });
+    $('#btn-send').click(function(e) {
+        $('.my-info:eq(0)').val($('#name').val());
+        $('.my-info:eq(1)').val($('#email').val());
+        $('.choose').each(function(index) {
+            console.log(index);
+            if ($(this).children('p').text() != '') {
+                $('.off-input:eq({0})'.replace('{0}', index)).val('1');
+            } else {
+                $('.off-input:eq({0})'.replace('{0}', index)).val('0');
+            };
+        });
+        $('form').submit();
+    });
+</script>
+<script>
+    $('#r1').css('background-color', '#00E88F');
+    $('.manual-btn').click(function(e) {
+        $('.manual-btn').css('background-color', 'transparent');
+        $(this).css('background-color', '#00E88F');
+    });
+</script>
+{%endblock%}

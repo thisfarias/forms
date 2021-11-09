@@ -7,11 +7,6 @@ from . import controller
 
 def forms(request):
     question = controller.arguments()
-    '''question = [
-        'Greys Anatomy precisa acabar',
-        'Back-end >>>> Front-end',
-        'Volta domigão do faustao'
-    ]'''
     key = controller.generate_key()
     return render(request, 'forms.html', {"questions":question, 'key':key})
 
