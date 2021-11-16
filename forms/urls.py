@@ -24,4 +24,4 @@ urlpatterns = [
     path('', include('index.urls')),
 ]
 
-handler404 = 'inedx.views.handler_404'
+handler404 = 'index.views.handler_404'

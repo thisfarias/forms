@@ -8,7 +8,7 @@ def home(request):
     atratividade = 'http://'+host+'/atratividade/forms'
     return render(request, 'home.html', {'ikigai':ikigai, 'atratividade':atratividade})
 
-def handler_404(request):
+def handler_404(request, exception=None):
     response = render('404.html')
     response.status_code = 404
     return response
