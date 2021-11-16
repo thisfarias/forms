@@ -274,10 +274,12 @@
 
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ["Element", "Porcentagem", {
+            ["Element", "Atratividade Geral", 'Minímo', 'Média', {
                 role: "style"
             }],
-            ["Atratividade Geral", total, "#00E88F"],
+            ["", null, 40, 70, "#00a3fe"],
+            ["Atratividade Geral", total, 40, 70, "#00E88F"],
+            ["", null, 40, 70, "#00a3fe"],
 
         ]);
 
@@ -288,22 +290,50 @@
                 type: "string",
                 role: "annotation"
             },
-            2
+            2, {
+                calc: "stringify",
+                sourceColumn: null,
+                type: "string",
+                role: "certainty",
+            },
+            3, {
+                calc: "stringify",
+                sourceColumn: null,
+                type: "string",
+                role: "certainty"
+            },
+            4
         ]);
 
         var options = {
+            seriesType: "bars",
+            isStacked: true,
+            interpolateNulls: true,
             width: 'auto',
             height: 'auto',
             bar: {
-                groupWidth: "75%"
+                groupWidth: "100%"
             },
             legend: {
-                position: "none"
+                position: "top"
             },
             hAxis: {
                 title: 'Porcentagem',
                 minValue: 0,
                 maxValue: 100
+            },
+            series: {
+                0: {
+                    color: '00E88F'
+                },
+                1: {
+                    type: 'line',
+                    color: 'F32CCD',
+                },
+                2: {
+                    type: 'line',
+                    color: '7B0499',
+                },
             }
         };
 
@@ -322,12 +352,14 @@
 
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ["Element", "Porcentagem", {
+            ["Element", "Habilidades", 'Mínimo', 'Média', {
                 role: "style"
             }],
-            ["Técnica", tec, "#00a3fe"],
-            ["Comportamentais", comp, "#16e6ce"],
-            ["Organizacionais", org, "#61d937"],
+            ["", null, 40, 70, "red"],
+            ["Técnica", tec, 40, 70, "#00a3fe"],
+            ["Comportamentais", comp, 40, 70, "#16e6ce"],
+            ["Organizacionais", org, 40, 70, "#61d937"],
+            ["", null, 40, 70, "red"],
 
         ]);
 
@@ -338,22 +370,53 @@
                 type: "string",
                 role: "annotation"
             },
-            2
+            2, {
+                calc: "stringify",
+                sourceColumn: null,
+                type: "string",
+                role: "certainty",
+            },
+            3, {
+                calc: "stringify",
+                sourceColumn: null,
+                type: "string",
+                role: "certainty"
+            },
+            4
         ]);
 
         var options = {
-            width: 'auto',
-            height: 'auto',
+            seriesType: "bars",
+            isStacked: true,
+            interpolateNulls: true,
+            width: '100%',
+            height: '100%',
             bar: {
-                groupWidth: "75%"
+                groupWidth: "80%"
             },
             legend: {
-                position: "none"
+                position: "top"
             },
             hAxis: {
                 title: 'Porcentagem',
                 minValue: 0,
-                maxValue: 100
+                maxValue: 100,
+                gridlines: {
+                    color: 'transparent'
+                }
+            },
+            series: {
+                0: {
+                    color: '16E6CE'
+                },
+                1: {
+                    type: 'line',
+                    color: 'F32CCD',
+                },
+                2: {
+                    type: 'line',
+                    color: '7B0499',
+                },
             }
         };
         var chart = new google.visualization.BarChart(document.getElementById("habilidades"));
@@ -369,10 +432,13 @@
 
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ["Element", "Porcentagem", {
+            ["Element", "Liderança", 'Minímo', 'Média', {
                 role: "style"
             }],
-            ["Liderança", lideranca, "#00a3fe"]
+            ["", null, 40, 70, "#00a3fe"],
+            ["Liderança", lideranca, 40, 70, "#00a3fe"],
+            ["", null, 40, 70, "#00a3fe"],
+
         ]);
 
         var view = new google.visualization.DataView(data);
@@ -380,26 +446,56 @@
                 calc: "stringify",
                 sourceColumn: 1,
                 type: "string",
-                role: "annotation"
+                role: "annotation",
             },
-            2
+            2, {
+                calc: "stringify",
+                sourceColumn: null,
+                type: "string",
+                role: "certainty",
+            },
+            3, {
+                calc: "stringify",
+                sourceColumn: null,
+                type: "string",
+                role: "certainty"
+            },
+            4
         ]);
 
         var options = {
+            seriesType: "bars",
+            isStacked: true,
+            interpolateNulls: true,
             width: '100%',
             height: '100%',
             bar: {
-                groupWidth: "35%"
+                groupWidth: "100%"
             },
             legend: {
-                position: "none"
+                position: 'top'
             },
             hAxis: {
                 title: 'Porcentagem',
                 minValue: 0,
-                maxValue: 100
+                maxValue: 100,
+                gridlines: {
+                    color: 'transparent'
+                }
             },
-
+            series: {
+                0: {
+                    color: '#00a3fe'
+                },
+                1: {
+                    type: 'line',
+                    color: 'F32CCD',
+                },
+                2: {
+                    type: 'line',
+                    color: '7B0499',
+                },
+            }
         };
         var chart = new google.visualization.BarChart(document.getElementById("liderança"));
         chart.draw(view, options);
@@ -415,11 +511,13 @@
 
     function drawChart() {
         var data = google.visualization.arrayToDataTable([
-            ["Element", "Porcentagem", {
+            ["Element", "Empreendedorismo", 'Minímo', 'Média', {
                 role: "style"
             }],
-            ["Intra", intra, "#61d937"],
-            ["Extra", extra, "#61d937"],
+            ["", null, 40, 70, "#00a3fe"],
+            ["Intra", intra, 40, 70, "#61d937"],
+            ["Extra", extra, 40, 70, "#61d937"],
+            ["", null, 40, 70, "#00a3fe"],
         ]);
 
         var view = new google.visualization.DataView(data);
@@ -429,22 +527,47 @@
                 type: "string",
                 role: "annotation"
             },
-            2
+            2, {
+                calc: "stringify",
+                sourceColumn: null,
+                type: "string",
+                role: "certainty",
+            },
+            3, {
+                calc: "stringify",
+                sourceColumn: null,
+                type: "string",
+                role: "certainty"
+            },
+            4
         ]);
 
         var options = {
             width: '100%',
             height: '100%',
             bar: {
-                groupWidth: "35%"
+                groupWidth: "95%"
             },
             legend: {
-                position: "none"
+                position: "top"
             },
             hAxis: {
                 title: 'Porcentagem',
                 minValue: 0,
                 maxValue: 100
+            },
+            series: {
+                0: {
+                    color: '16E6CE'
+                },
+                1: {
+                    type: 'line',
+                    color: 'F32CCD',
+                },
+                2: {
+                    type: 'line',
+                    color: '7B0499',
+                },
             }
         };
         var chart = new google.visualization.BarChart(document.getElementById("empreend"));
