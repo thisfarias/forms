@@ -1,0 +1,69 @@
+#div-logo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 3.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo {
+    width: 30rem;
+    height: 10rem;
+}
+
+.card {
+    margin-top: 8.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-form {
+    padding-bottom: .35rem;
+    border-bottom: 2px solid #e5e5e5;
+    margin-bottom: 2rem;
+}
+
+.card-form p {
+    font-size: 2.8rem;
+    font-family: AprovaSans, sans-serif;
+    letter-spacing: .2rem;
+    margin: 0rem;
+    margin-top: .25rem;
+    color: #000;
+}
+
+.cards {
+    margin-top: 2.5rem
+}
+
+.radius {
+    width: auto;
+    background-color: #00E88F;
+    border-radius: 40rem;
+    padding: 3.5rem;
+    cursor: pointer;
+    color: #000;
+}
+
+a {
+    text-decoration: none;
+}
+
+.radius p {
+    font-family: VanguardCF, sans-serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0px;
+    letter-spacing: .15rem;
+    margin-top: .2rem;
+    text-align: center;
+}
+
+.radius:hover {
+    background-color: #000;
+    color: #00E88F
+}

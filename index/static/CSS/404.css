@@ -1,0 +1,17 @@
+.card-error {
+    padding-bottom: .35rem;
+    border-bottom: 2px solid #e5e5e5;
+    margin-bottom: 2rem;
+}
+
+.radius p {
+    font-family: VanguardCF, sans-serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin: 0px;
+    letter-spacing: .15rem;
+    margin-top: .2rem;
+    text-align: center;
+    color: #000
+}

@@ -1,0 +1,25 @@
+{%extends 'structure.html'%} {%load static%} {%block static%}
+<link rel='stylesheet' href='{%static "css/index.css"%}'> {%endblock%} {%block content%}
+<div id='div-logo'>
+    <a href='/'><img id='logo' src='{%static "image/logo.svg"%}'></a>
+</div>
+<div class='card'>
+    <div class='card-form'>
+        <p>Forms Disponíveis</p>
+    </div>
+    <div class='cards'>
+        <a href='{{ikigai}}'>
+            <div class='radius ikigai'>
+                <p>IKIGAI</p>
+            </div>
+        </a>
+    </div>
+    <div class='cards'>
+        <a href='{{atratividade}}'>
+            <div class='radius'>
+                <p>Atratividade<br>Mercado</p>
+            </div>
+        </a>
+    </div>
+</div>
+{%endblock%}
