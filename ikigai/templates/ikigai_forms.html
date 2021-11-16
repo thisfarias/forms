@@ -207,9 +207,9 @@
     </div>
 </div>
 <form id='my-form' action="/ikigai/charts/{{key}}" method="post">{%csrf_token%}
-    <input type='text' name='form-key' value='{{key}}'>
-    <input type='text' name='name' class='my-info'>
-    <input type='text' name='email' class='my-info'>{%for i in loop%}
+    <input type='text' name='form-key' value='{{key}}' required>
+    <input type='text' name='name' class='my-info' required>
+    <input type='text' name='email' class='my-info' required>{%for i in loop%}
     <input type='text' name='input-{{forloop.counter}}' class='off-input'> {%endfor%}
     <button type='Submit'>Add</button>
 </form>

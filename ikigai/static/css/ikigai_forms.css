@@ -1,292 +1,303 @@
-.main-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5rem;
-    height: auto;
-    width: 100%;
-}
-
-#card-header {
-    margin-top: 6.5rem;
-}
-
-.main-div img {
-    width: 30rem;
-    height: 8rem;
-}
-
-.cards {
-    width: 80%;
-    height: auto;
-    border-radius: 0.8rem;
-}
-
-#title {
-    display: flex;
-    flex-direction: column;
-    background-color: #00E88F;
-    margin-top: .5rem;
-}
-
-.content {
-    display: block;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    width: auto;
-    height: auto;
-}
-
-#quest {
-    font-family: VanguardCF, sans-serif;
-    font-size: 3.2rem;
-    line-height: 1;
-    text-transform: uppercase;
-    margin: 0px;
-    letter-spacing: .15rem;
-    color: #000;
-    margin-top: .2rem;
-}
-
-#title-legend {
-    color: red;
-    font-size: 1.6rem;
-    font-family: AprovaSans, sans-serif;
-    letter-spacing: .2rem;
-    margin: 0rem;
-    margin-top: .25rem;
-}
-
-.div-quest {
-    margin-top: 0;
-}
-
-.copy-cards {
-    position: relative;
-    display: flex;
-    margin-top: 2.5rem;
-    flex-direction: column;
-    background-color: #f6f6f6;
-    border-radius: .8rem;
-}
-
-.content-inputs {
-    width: auto;
-    height: auto;
-    margin-left: 2rem;
-    margin-right: 2rem;
-}
-
-.info-title p {
-    font-family: AprovaSans, sans-serif;
-    font-size: 2.1rem;
-    letter-spacing: .2rem;
-    color: #000;
-    margin-top: 1rem
-}
-
-.info-title span {
-    color: red;
-    font-size: 18px;
-    font-family: AprovaSans, sans-serif;
-}
-
-.info-answer input {
-    color: #333;
-    width: 80%;
-    margin-top: 1rem;
-    margin-bottom: 3rem;
-    font-family: AprovaSans, sans-serif;
-    letter-spacing: 1.5px;
-    font-size: 1.8rem;
-    outline: none;
-    border: none;
-    border-bottom: 2px solid #333;
-    transition: border 500ms ease-in-out;
-    background-color: transparent;
-}
-
-input:focus {
-    border-color: #00E88F;
-}
-
-.show-questions-cards {
-    width: 100%;
-    height: 60rem;
-    margin-bottom: 3rem;
-    overflow: hidden;
-}
-
-.over-cards {
-    position: relative;
-    display: flex;
-    width: 500%;
-    height: 100%;
-}
-
-.session-cards {
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-    height: 100%;
-    overflow: hidden;
-}
-
-.title-session {
-    margin-top: 1rem;
-    margin-left: 1rem;
-}
-
-.title-session p {
-    font-family: AprovaSans, sans-serif;
-    font-size: 2.1rem;
-    letter-spacing: .2rem;
-    color: #000;
-    margin-top: 1.5rem;
-}
-
-.title-session span {
-    color: red;
-    font-size: 18px;
-    font-family: AprovaSans, sans-serif;
-}
-
-.content-session {
-    margin-left: 1rem;
-    overflow-y: auto;
-}
-
-.questions {
-    width: 95%;
-    display: flex;
-    flex-direction: row;
-    margin-top: 0.1rem;
-}
-
-.color-true {
-    background-color: #B4FADF;
-}
-
-.color-false {
-    background-color: #FFFFFF;
-}
-
-.questions p {
-    font-family: AprovaSans, sans-serif;
-    font-size: 1.8rem;
-    letter-spacing: .2rem;
-    color: #000;
-}
-
-.number-question {
-    border: #000 solid 0.2rem;
-    width: 15%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.question {
-    border: #000 solid 0.2rem;
-    width: 75%;
-}
-
-.question p {
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
-.choose {
-    border: #000 solid 0.2rem;
-    width: 10%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.25s all ease;
-}
-
-.choose:hover {
-    background-color: #00E88F;
-}
-
-.buttons {
-    text-align: center;
-    width: 100%;
-}
-
-.show-questions-cards input {
-    display: none
-}
-
-.manual-btn {
-    position: relative;
-    border: 2px solid #0f0f0f;
-    padding: 1px;
-    padding-left: 1.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 1s;
-}
-
-.manual-btn:not(:last-child) {
-    margin-right: 30px;
-}
-
-.cards-button {
-    position: relative;
-}
-
-.manual-btn:hover {
-    background-color: #0f0f0f;
-}
-
-#radio1:checked~.over-cards {
-    margin-left: 0%;
-}
-
-#radio2:checked~.over-cards {
-    margin-left: -100%;
-}
-
-#radio3:checked~.over-cards {
-    margin-left: -200%;
-}
-
-#radio4:checked~.over-cards {
-    margin-left: -300%;
-}
-
-#div-button {
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-
-#btn-send {
-    background-color: #00E88F;
-    color: #333;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-family: AprovaSans, sans-serif;
-    letter-spacing: 1.5px;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-#btn-send:hover {
-    cursor: pointer;
-    color: #00E88F;
-    background-color: #000;
-}
-
-#my-form {
-    display: none;
-}
+    .main-div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5rem;
+        height: auto;
+        width: 100%;
+    }
+    
+    #card-header {
+        margin-top: 6.5rem;
+    }
+    
+    .main-div img {
+        width: 30rem;
+        height: 8rem;
+    }
+    
+    .cards {
+        width: 80%;
+        height: auto;
+        border-radius: 0.8rem;
+    }
+    
+    #title {
+        display: flex;
+        flex-direction: column;
+        background-color: #00E88F;
+        margin-top: .5rem;
+    }
+    
+    .content {
+        display: block;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        width: auto;
+        height: auto;
+    }
+    
+    #quest {
+        font-family: VanguardCF, sans-serif;
+        font-size: 3.2rem;
+        line-height: 1;
+        text-transform: uppercase;
+        margin: 0px;
+        letter-spacing: .15rem;
+        color: #000;
+        margin-top: .2rem;
+    }
+    
+    #title-legend {
+        color: red;
+        font-size: 1.6rem;
+        font-family: AprovaSans, sans-serif;
+        letter-spacing: .2rem;
+        margin: 0rem;
+        margin-top: .25rem;
+    }
+    
+    .div-quest {
+        margin-top: 0;
+    }
+    
+    .copy-cards {
+        position: relative;
+        display: flex;
+        margin-top: 2.5rem;
+        flex-direction: column;
+        background-color: #f6f6f6;
+        border-radius: .8rem;
+    }
+    
+    .content-inputs {
+        width: auto;
+        height: auto;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+    
+    .info-title p {
+        font-family: AprovaSans, sans-serif;
+        font-size: 2.1rem;
+        letter-spacing: .2rem;
+        color: #000;
+        margin-top: 1rem
+    }
+    
+    .info-title span {
+        color: red;
+        font-size: 18px;
+        font-family: AprovaSans, sans-serif;
+    }
+    
+    .info-answer input {
+        color: #333;
+        width: 80%;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        font-family: AprovaSans, sans-serif;
+        letter-spacing: 1.5px;
+        font-size: 1.8rem;
+        outline: none;
+        border: none;
+        border-bottom: 2px solid #333;
+        transition: border 500ms ease-in-out;
+        background-color: transparent;
+    }
+    
+    input:focus {
+        border-color: #00E88F;
+    }
+    
+    .show-questions-cards {
+        width: 100%;
+        height: 60rem;
+        margin-bottom: 3rem;
+        overflow: hidden;
+    }
+    
+    .over-cards {
+        position: relative;
+        display: flex;
+        width: 500%;
+        height: 100%;
+    }
+    
+    .session-cards {
+        display: flex;
+        flex-direction: column;
+        width: 20%;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    .title-session {
+        margin-top: 1rem;
+        margin-left: 1rem;
+    }
+    
+    .title-session p {
+        font-family: AprovaSans, sans-serif;
+        font-size: 2.1rem;
+        letter-spacing: .2rem;
+        color: #000;
+        margin-top: 1.5rem;
+    }
+    
+    .title-session span {
+        color: red;
+        font-size: 18px;
+        font-family: AprovaSans, sans-serif;
+    }
+    
+    .content-session {
+        margin-left: 1rem;
+        overflow-y: auto;
+    }
+    
+    .questions {
+        width: 95%;
+        display: flex;
+        flex-direction: row;
+        margin-top: 0.1rem;
+        border-radius: 55px;
+        overflow: hidden;
+        margin-bottom: .8rem;
+        border: 1px solid #00E88F;
+    }
+    
+    .color-true {
+        background-color: #83CCF4;
+    }
+    
+    .color-false {
+        background-color: #FFFFFF;
+    }
+    
+    .questions p {
+        font-family: AprovaSans, sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: .2rem;
+        color: #000;
+    }
+    
+    .number-question {
+        width: 15%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .question {
+        width: 75%;
+    }
+    
+    .question p {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    
+    .choose {
+        width: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.25s all ease;
+        background-color: #00E88F;
+    }
+    
+    .choose:hover {
+        background-color: #f39c12;
+    }
+    
+    .buttons {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .show-questions-cards input {
+        display: none
+    }
+    
+    .manual-btn {
+        position: relative;
+        border: 2px solid #0f0f0f;
+        padding: 1px;
+        padding-left: 1.5rem;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 1s;
+    }
+    
+    .manual-btn:not(:last-child) {
+        margin-right: 30px;
+    }
+    
+    .cards-button {
+        position: relative;
+    }
+    
+    .manual-btn:hover {
+        background-color: #0f0f0f;
+    }
+    
+    #radio1:checked~.over-cards {
+        margin-left: 0%;
+    }
+    
+    #radio2:checked~.over-cards {
+        margin-left: -100%;
+    }
+    
+    #radio3:checked~.over-cards {
+        margin-left: -200%;
+    }
+    
+    #radio4:checked~.over-cards {
+        margin-left: -300%;
+    }
+    
+    #div-button {
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+        margin-top: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    #btn-send {
+        background-color: #00E88F;
+        color: #333;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-family: AprovaSans, sans-serif;
+        letter-spacing: 1.5px;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    
+    #btn-send:hover {
+        cursor: pointer;
+        color: #00E88F;
+        background-color: #000;
+    }
+    
+    #my-form {
+        display: none;
+    }
+    
+    @media (max-width: 767px) {
+        .questions {
+            width: 90%;
+        }
+        .choose {
+            width: 20%;
+        }
+    }
