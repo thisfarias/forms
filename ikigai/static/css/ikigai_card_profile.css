@@ -1,0 +1,24 @@
+#box-results {
+    overflow: hidden;
+}
+
+.card-background {
+    background-color: #00E88F;
+    position: relative;
+}
+
+.card-profile {
+    background-color: #f6f6f6;
+    border-radius: .25rem;
+    margin-bottom: 2.5rem;
+    padding: .35rem;
+    width: 92%;
+    margin-left: 8%;
+}
+
+.card-profile-text {
+    color: #333;
+    font-family: AprovaSans, sans-serif;
+    font-size: 1.6rem;
+    text-align: center;
+}

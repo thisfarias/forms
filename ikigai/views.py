@@ -23,7 +23,34 @@ def charts(request, key):
         key = request.POST.get('form-key')
         name = request.POST.get('name')
         email = request.POST.get('email')
-        ikigai = controller.calculate_ikigai(controller.rank_responses([request.POST.get(obj) for obj in request.POST]))
+        ikigai = controller.rank_responses([request.POST.get(obj) for obj in request.POST])
+        controller.save_data(name, email, key, ikigai)
     elif request.method == 'GET':
-        pass
-    return HttpResponse(ikigai)
+        client = controller.get_client(key)
+        key = client['key']
+        name = client['name']
+        email = client['email']
+    return render(request, 'charts_ikigai.html', {'Name': name, 'Email': email, 'Key':key})
+
+def query(request):
+    if request.method == 'POST':
+        key = request.POST.get('key')
+        option = request.POST.get('option')
+        dic_option = {
+            1:'Qual a minha vocação',
+            2:'Qual minha profissão ideal',
+            3:'Qual a base de minha missão',
+            4:'O que eu faço com paixão',
+            5:'Qual minha razão de ser'
+        }
+        option = dic_option[int(option)]
+        client = controller.get_client(key)
+        data = controller.desconcatenate([
+            client['profissao'], 
+            client['vocacao'],
+            client['missao'], 
+            client['paixao']
+        ])
+        my_profile = controller.calculate_profile(data, option)
+        return render(request, 'query.html', {'profile':my_profile})
+

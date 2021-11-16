@@ -1,0 +1,85 @@
+{%extends 'structure.html'%} {%load static%} {%block title%}Gráfico IKIGAI{%endblock%} {%block static%}
+<link rel='stylesheet' href='{%static "css/ikigai_charts.css"%}'>
+<link rel='stylesheet' href='{%static "css/ikigai_card_profile.css"%}'>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+{%endblock%} {%block fonts%}{%endblock%} {%block navbar%}
+<div id='navbar'>
+    <div id='div-logo'>
+        <a href='/'><img id='logo' src='{%static "image/logo.svg"%}'></a>
+    </div>
+</div>
+{%endblock%} {%block content%} {%csrf_token%}
+<div class='main-div'>
+    <div class='cards'>
+        <div class='info'>
+            <div class='info-image'>
+                <img src='{%static "image/user.png"%}' class='icon'>
+            </div>
+            <div class='info-input'>
+                <input id='name' class='input' value='{{Name}}' disabled>
+            </div>
+        </div>
+        <div class='info'>
+            <div class='info-image'>
+                <img src='{%static "image/arroba.png"%}' class='icon'>
+            </div>
+            <div class='info-input'>
+                <input id='email' class='input' value='{{Email}}' disabled>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='main-div'>
+    <div class='card'>
+        <div id='ikigai'>
+            <div class="select">
+                <select id='query-profile'>
+                  <option value="1">Qual a minha vocação</option>
+                  <option value="2">Qual minha profissão ideal</option>
+                  <option value="3">Qual a base de minha missão</option>
+                  <option value="4">O que eu faço com paixão</option>
+                  <option value="5">Qual minha razão de ser</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='main-div'>
+    <div class='card'>
+        <div id='box-results'></div>
+    </div>
+</div>
+
+<script>
+    $('#query-profile').change(function() {
+        $('#box-results').empty();
+        $.ajax({
+            type: 'POST',
+            url: '/ikigai/query',
+            data: {
+                'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
+                'key': '{{Key}}',
+                'option': $('#query-profile').val()
+            },
+            success: function(data, textStatus, jqXHR) {
+                $('#box-results').html(data)
+            },
+            dataType: 'html'
+        });
+        $.keyframe.define([{
+            name: 'slider',
+            '0%': {
+                left: "-120%"
+            },
+            '100%': {
+                left: "0%"
+            },
+        }]);
+        $('.card-background').playKeyframe({
+            name: 'slider',
+            duration: '5s'
+        });
+    });
+</script>
+
+{%endblock%}

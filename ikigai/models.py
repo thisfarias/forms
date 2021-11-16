@@ -10,7 +10,7 @@ class Client(models.Model):
     missao = models.CharField(max_length=35, blank=False)
     paixao = models.CharField(max_length=35, blank=False)
 
-    class Meta:
+    class Meta:        
         verbose_name = 'Client'
         verbose_name_plural = 'Client'
     

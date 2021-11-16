@@ -208,6 +208,7 @@ input:focus {
     font-size: 2.1rem;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.25s all ease;
 }
 
 .choose:hover {

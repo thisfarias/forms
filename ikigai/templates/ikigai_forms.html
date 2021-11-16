@@ -1,19 +1,19 @@
 {%extends 'structure.html'%} {%load static%} {%block title%}Questionário: Atratividade Mercado{%endblock%} {%block static%}
 <link rel='stylesheet' href='{%static "css/ikigai_forms.css"%}'> {%endblock%} {%block fonts%}{%endblock%} {%block content%}
 <div id='card-header' class='main-div'>
-    <a href='/'><img src='{%static "image/log.svg"%}'></a>
+    <a href='/'><img src='{%static "image/logo.svg"%}'></a>
 </div>
 <div class='main-div'>
     <div id='title' class='cards'>
         <div id='content-title' class='content'>
-            <p id='quest'>Questinário: IKIGAI</p>
+            <p id='quest'>Questionário: IKIGAI</p>
             <p id='title-legend'>* Obrigatório</p>
         </div>
     </div>
 </div>
 <div class='main-div div-quest'>
     <div class='cards'>
-        <div class='copy-cards'>
+        <div class='copy-cards div-name'>
             <div class='content-inputs'>
                 <div class='info-title'>
                     <p>
@@ -26,7 +26,7 @@
                 </div>
             </div>
         </div>
-        <div class='copy-cards'>
+        <div class='copy-cards div-email'>
             <div class='content-inputs'>
                 <div class='info-title'>
                     <p>
@@ -222,17 +222,33 @@
         };
     });
     $('#btn-send').click(function(e) {
-        $('.my-info:eq(0)').val($('#name').val());
-        $('.my-info:eq(1)').val($('#email').val());
-        $('.choose').each(function(index) {
-            console.log(index);
-            if ($(this).children('p').text() != '') {
-                $('.off-input:eq({0})'.replace('{0}', index)).val('1');
+        if ($('#name').val() != '' && $('#email').val() != '') {
+            $('.my-info:eq(0)').val($('#name').val());
+            $('.my-info:eq(1)').val($('#email').val());
+            $('.choose').each(function(index) {
+                console.log(index);
+                if ($(this).children('p').text() != '') {
+                    $('.off-input:eq({0})'.replace('{0}', index)).val('1');
+                } else {
+                    $('.off-input:eq({0})'.replace('{0}', index)).val('0');
+                };
+                $('form').submit();
+            });
+        } else {
+            if ($('#name').val() === '' && $('#email').val() === '') {
+                $('.div-name').attr('style', 'background-color:#F6492A');
+                $('.div-email').attr('style', 'background-color:#F6492A');
+            } else if ($('#name').val() === '') {
+                $('.div-email').attr('style', 'background-color:#F6492A');
             } else {
-                $('.off-input:eq({0})'.replace('{0}', index)).val('0');
+                $('.div-email').attr('style', 'background-color:#F6492A');
             };
-        });
-        $('form').submit();
+        };
+    });
+    $('.copy-cards').on('change', function(e) {
+        if ($('.copy-cards').css("background-color") === 'rgb(246, 73, 42)') {
+            $(this).attr('style', 'background-color:#f6f6f6');
+        };
     });
 </script>
 <script>

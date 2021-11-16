@@ -2,6 +2,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from hashlib import new
 import uuid
+from . import models
 
 from . import models
 
@@ -183,33 +184,196 @@ def rank_responses(ikigai):
     ikigai_list = []
     count = 0
     for obj in ikigai:
-        new_list.append(obj)
+        new_list.append('x' if obj == '1' else '0')
         if len(new_list) == 35:
             ikigai_list.append(new_list)
             new_list = []
             count += 1
     return ikigai_list
 
-def calculate_ikigai(my_list):
-    amo = my_list[0]
-    bom = my_list[1]
-    preciso = my_list[2]
-    pago = my_list[3]
-    data = [] 
-    ikigai = [] 
-    profissao = [] 
-    vocacao = []
-    missao = [] 
-    paixao  = []
-    for num in range(35):
-        ikigai.append(int(amo[num]) + int(bom[num]) + int(preciso[num]) + int(pago[num]))
-        profissao.append(int(bom[num]) + int(pago[num]))
-        vocacao.append(int(preciso[num]) + int(pago[num]))
-        missao.append(int(amo[num]) + int(preciso[num]))
-        paixao.append(int(bom[num]))
-    data.append(ikigai)
-    data.append(profissao)
-    data.append(vocacao)
-    data.append(missao)
-    data.append(paixao)
-    return data
+def concatenate(data):
+    string_list = []
+    for my_list in data:
+        my_string = ''
+        for i in my_list:
+            my_string += str(i)
+        string_list.append(my_string)
+    return string_list
+
+def desconcatenate(data):
+    new_list = []
+    for string in data:
+        string_list = []
+        for char in string:
+            string_list.append(char)
+        new_list.append(string_list)
+    return new_list
+
+def save_data(name, email, key, data):
+    string_list = concatenate(data)
+    db = models.Client(
+        name=name, 
+        email=email,
+        key=key,
+        profissao=string_list[0],
+        vocacao=string_list[1],
+        missao=string_list[2],
+        paixao=string_list[3],
+    )
+    db.save()
+
+def get_client(key):
+    query = models.Client.objects.get(key=key)
+    return {
+        'name':query.name,
+        'email':query.email,
+        'key':query.key,
+        'profissao':query.profissao,
+        'vocacao':query.vocacao,
+        'missao':query.missao,
+        'paixao':query.paixao,
+    }
+
+def calculate_profile(data, option):
+    profiles = {
+        'vocação':{
+            'name':'Vocação',
+            'text':'Qual a minha vocação',
+            'value':'xx'
+        },
+        'profissão':{
+            'name':'Profissão',
+            'text':'Qual minha profissão ideal',
+            'value':'xx',
+        },
+        'missão':{
+            'name':'Missão',
+            'text':'Qual a base de minha missão',
+            'value':'xx',
+        },
+        'paixão':{
+            'name':'Paixão',
+            'text':'O que eu faço com paixão',
+            'value':'xx',
+        },
+        'razão':{
+            'name':'Razão',
+            'text':'Qual minha razão de ser',
+            'value':'xxxx', 
+        }
+    }
+    info = [
+        'Coaching e mentoria',
+        'Abordagem metódica',
+        'Princípios morais e padrões éticos',
+        'Trabalho colaborativo',
+        ' Tecnologia da informação',
+        ' Inteligência social e emocional',
+        ' Conhecimento de equipamentos e programas',
+        ' Gestão de desempenho',
+        ' Técnicas de persuasão',
+        ' Crescimento na carreira',
+        ' Gestão da mudança',
+        ' Controle do estresse',
+        ' Alfabetização digital',
+        ' Comunicação escrita',
+        ' Comunicação verbal',
+        ' Compromisso com a excelência',
+        ' Compromisso com a excelência do cliente',
+        ' Perspicácia nos negócios',
+        ' Persuasão e influência sob a equipe',
+        ' Gestão de dados',
+        ' Planejamento e organização',
+        ' Pensamento estruturado',
+        ' Pensamento criativo',
+        ' Identificação de padrões ou conexões',
+        ' Pesquisa e análise',
+        ' Planejamento futuro',
+        ' Gestão estratégica',
+        ' Inovação e desenvoltura',
+        ' Resolução de problemas',
+        ' Tomada de decisões',
+        ' Políticas e planejamento',
+        ' Confiabilidade',
+        ' Trabalho em equipe',
+        ' Formação e desenvolvimento',
+    ]
+    preciso = data[0]
+    bom = data[1]
+    pago = data[2]
+    amo = data[3]
+    my_profile = []
+    if profiles['vocação']['text'] == option:
+        for i in range(35):
+            result = preciso[i] + pago[i]
+            if result == profiles['vocação']['value']:
+                my_profile.append(info[i])
+    elif profiles['profissão']['text'] == option:
+        for i in range(35):
+            result = bom[i] + pago[i]
+            if result == profiles['profissão']['value']:
+                my_profile.append(info[i])
+    elif profiles['missão']['text'] == option:
+        for i in range(35):
+            result = amo[i] + preciso[i]
+            if result == profiles['missão']['value']:
+                my_profile.append(info[i])
+    elif profiles['paixão']['text'] == option:
+        for i in range(35):
+            result = amo[i] +  bom[i]
+            if result == profiles['paixão']['value']:
+                my_profile.append(info[i])
+    elif profiles['razão']['text'] == option:
+        for i in range(35):
+            result = amo[i] + bom[i] + preciso[i] + pago[i]
+            if result == profiles['razão']['value']:
+                my_profile.append(info[i])
+    return my_profile
+
+
+def send_mail(my_list):
+    import smtplib
+    from email.message import EmailMessage
+    port = 465
+    
+    my_mail = 'theus0197@gmail.com'
+    my_pass = 'Tiube@0504'
+    with smtplib.SMTP_SSL("smtp.gmail.com", port) as server:
+        server.ehlo()
+        server.login(my_mail, my_pass)
+        msg = MIMEMultipart('alternative')
+
+        html = '''
+        <h1 style='font-family:Arial'>Olá <span style='color:#00E88F;'><b>{}</b></span></h1>\n
+        <p style='font-family:Arial'>Segue o resultado do seus forms:</p>\n
+            <span style='font-family:Arial'><b>Geral:</b> {:.2f}%</span><br>\n
+            <span style='font-family:Arial'><b>Habilidades organizacionai:</b> {:.2f}%</span><br>\n
+            <span style='font-family:Arial'><b>Competências técnicas:</b> {:.2f}%</span><br>\n
+            <span style='font-family:Arial'><b>Comportamentos:</b> {:.2f}%</span><br>\n
+            <span style='font-family:Arial'><b>Nível de empreendedorismo:</b> {:.2f}%</span><br>\n
+            <span style='font-family:Arial'><b>Nível de intraempreededorismo:</b> {:.2f}%</span><br>\n
+            <span style='font-family:Arial'><b>Perfil de liderança:</b> {:.2f}%</span><br>\n
+        <br>
+        <p style='font-family:Arial'>Segue o link, para futuras consultas: <a href='http://127.0.0.1:8000/ikigai/charts/{}'>http://127.0.0.1:8000/atratividade/charts/{}</a></p><br>\n
+        <span style='font-family:Arial'>Atenciosamente,</span>\n
+        <p style='font-family:Arial'>Equipe <a href='https://descomplica.com.br/' style='color:#00E88F; text-decoration:none'><b>Descomplica</b></a>.</p>
+        '''.format(
+            my_list[0],
+            float(my_list[2]),
+            float(my_list[3]),
+            float(my_list[4]),
+            float(my_list[5]),
+            float(my_list[6]),
+            float(my_list[7]),
+            float(my_list[8]),
+            my_list[10],
+            my_list[10],
+        )
+        msg['Subject'] = 'Avaliação Atratividade Mercado'
+        msg['From'] = "my_mail"
+        msg['To'] = my_list[1]
+        part = MIMEText(html, 'html')
+        msg.attach(part)
+
+        server.sendmail(msg['From'],  msg['To'], msg.as_string())
+        server.quit()
