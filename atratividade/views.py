@@ -53,5 +53,6 @@ def charts(request, key):
 
 def email(request):
     my_list = [request.POST.get(obj) for obj in request.POST]
+    my_list.append(request.get_host())
     controller.send_mail(my_list)
     return HttpResponse('E-mail enviado!')

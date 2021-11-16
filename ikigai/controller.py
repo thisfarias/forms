@@ -338,39 +338,30 @@ def send_mail(my_list):
     
     my_mail = 'theus0197@gmail.com'
     my_pass = 'Tiube@0504'
+    host = 'http://'+my_list[11]+'/ikigai/charts/'+my_list[10]
     with smtplib.SMTP_SSL("smtp.gmail.com", port) as server:
         server.ehlo()
         server.login(my_mail, my_pass)
         msg = MIMEMultipart('alternative')
 
         html = '''
-        <h1 style='font-family:Arial'>Olá <span style='color:#00E88F;'><b>{}</b></span></h1>\n
-        <p style='font-family:Arial'>Segue o resultado do seus forms:</p>\n
-            <span style='font-family:Arial'><b>Geral:</b> {:.2f}%</span><br>\n
-            <span style='font-family:Arial'><b>Habilidades organizacionai:</b> {:.2f}%</span><br>\n
-            <span style='font-family:Arial'><b>Competências técnicas:</b> {:.2f}%</span><br>\n
-            <span style='font-family:Arial'><b>Comportamentos:</b> {:.2f}%</span><br>\n
-            <span style='font-family:Arial'><b>Nível de empreendedorismo:</b> {:.2f}%</span><br>\n
-            <span style='font-family:Arial'><b>Nível de intraempreededorismo:</b> {:.2f}%</span><br>\n
-            <span style='font-family:Arial'><b>Perfil de liderança:</b> {:.2f}%</span><br>\n
-        <br>
-        <p style='font-family:Arial'>Segue o link, para futuras consultas: <a href='http://127.0.0.1:8000/ikigai/charts/{}'>http://127.0.0.1:8000/atratividade/charts/{}</a></p><br>\n
+        <h1 style='font-family:Arial; color:#000'>Parabéns, Você completou o seu Questionário: IKIGAI!</h1>\n
+        <br>\n
+        <p style='font-family:Arial'>Agora você conhece um pouco mais sobre que tipo de profissional você é e como o Mercado enxerga o seu perfil!</p>\n
+        <p style='font-family:Arial'>A gente mandou esse email pra você saber exatamente onde encontrar os seus resultados caso você precise deles de novo.</p>\n
+        <p style='font-family:Arial'>Link: <a href='{}'>{}</a></p><br>\n
+        <p style='font-family:Arial'>Esse link vai ficar disponível por 3 meses. Por isso a gente recomenda que você salve ou imprima uma versão dele. Você pode fazer isso direto do seu navegador mesmo.</p>\n
+        <p style='font-family:Arial'>Depois de salvar, não esquece de continuar no conteúdo de Orientação de Carreira. Os próximos passos são essenciais para você entender melhor como criar um plano a partir do seu resultado no Questionário.</p>\n
         <span style='font-family:Arial'>Atenciosamente,</span>\n
+        <br>\n
         <p style='font-family:Arial'>Equipe <a href='https://descomplica.com.br/' style='color:#00E88F; text-decoration:none'><b>Descomplica</b></a>.</p>
+        <img src='https://d3awytnmmfk53d.cloudfront.net/landings/static/images/core/logo_verde.svg'>
         '''.format(
-            my_list[0],
-            float(my_list[2]),
-            float(my_list[3]),
-            float(my_list[4]),
-            float(my_list[5]),
-            float(my_list[6]),
-            float(my_list[7]),
-            float(my_list[8]),
-            my_list[10],
-            my_list[10],
+            host,
+            host
         )
-        msg['Subject'] = 'Avaliação Atratividade Mercado'
-        msg['From'] = "my_mail"
+        msg['Subject'] = 'Resultado | Questionário: IKIGAI'
+        msg['From'] = "falacomigo@descomplica.com.br"
         msg['To'] = my_list[1]
         part = MIMEText(html, 'html')
         msg.attach(part)
