@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.conf.urls import handler404
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('control/', admin.site.urls),
     path('atratividade/', include('atratividade.urls')),
     path('ikigai/', include('ikigai.urls')),
     path('', include('index.urls')),

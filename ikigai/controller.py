@@ -165,9 +165,9 @@ def hability():
 def generate_key():
     verify = True
     my_key = str(uuid.uuid4()).replace('-', '')
-    '''while verify is True:
+    while verify is True:
         my_key = str(uuid.uuid4()).replace('-', '')
-        verify = verify_key(my_key)'''
+        verify = verify_key(my_key)
     return my_key
 
 def verify_key(key):
@@ -335,10 +335,10 @@ def send_mail(my_list):
     import smtplib
     from email.message import EmailMessage
     port = 465
-    
-    my_mail = 'theus0197@gmail.com'
-    my_pass = 'Tiube@0504'
-    host = 'http://'+my_list[11]+'/ikigai/charts/'+my_list[10]
+
+    my_mail = 'faladescomplica@gmail.com'
+    my_pass = 'Tiube@2083'
+    host = 'http://'+my_list[3]+'/ikigai/charts/'+my_list[2]
     with smtplib.SMTP_SSL("smtp.gmail.com", port) as server:
         server.ehlo()
         server.login(my_mail, my_pass)
@@ -355,7 +355,7 @@ def send_mail(my_list):
         <span style='font-family:Arial'>Atenciosamente,</span>\n
         <br>\n
         <p style='font-family:Arial'>Equipe <a href='https://descomplica.com.br/' style='color:#00E88F; text-decoration:none'><b>Descomplica</b></a>.</p>
-        <img src='https://d3awytnmmfk53d.cloudfront.net/landings/static/images/core/logo_verde.svg'>
+        <img src='https://s3-recruiting.cdn.greenhouse.io/external_greenhouse_job_boards/logos/400/485/400/resized/LogoDescomplica.png?1602169648'>
         '''.format(
             host,
             host

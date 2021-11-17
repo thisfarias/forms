@@ -25,12 +25,14 @@ def charts(request, key):
         email = request.POST.get('email')
         ikigai = controller.rank_responses([request.POST.get(obj) for obj in request.POST])
         controller.save_data(name, email, key, ikigai)
+        condition = 1
     elif request.method == 'GET':
         client = controller.get_client(key)
         key = client['key']
         name = client['name']
         email = client['email']
-    return render(request, 'charts_ikigai.html', {'Name': name, 'Email': email, 'Key':key})
+        condition = 0
+    return render(request, 'charts_ikigai.html', {'Name': name, 'Email': email, 'Key':key, 'Condition':condition})
 
 def query(request):
     if request.method == 'POST':

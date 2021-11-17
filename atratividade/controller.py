@@ -227,8 +227,8 @@ def send_mail(my_list):
     from email.message import EmailMessage
     port = 465
     
-    my_mail = 'theus0197@gmail.com'
-    my_pass = 'Tiube@0504'
+    my_mail = 'faladescomplica@gmail.com'
+    my_pass = 'Tiube@2083'
     host = 'http://'+my_list[11]+'/atratividades/charts/'+my_list[10]
     with smtplib.SMTP_SSL("smtp.gmail.com", port) as server:
         server.ehlo()

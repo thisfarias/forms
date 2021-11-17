@@ -50,7 +50,6 @@
         <div id='box-results'></div>
     </div>
 </div>
-
 <script>
     $('#query-profile').change(function() {
         $('#box-results').empty();
@@ -82,5 +81,20 @@
         });
     });
 </script>
-
+<script>
+    if ('{{Condition}}' == '1') {
+        $.ajax({
+            url: '{%url "mail_ikigai"%}',
+            type: 'POST',
+            data: {
+                'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
+                'email': '{{Email}}',
+                'key': '{{Key}}'
+            },
+            success: function(data, textStatus, jqXHR) {
+                //alert(data);
+            }
+        })
+    }
+</script>
 {%endblock%}
