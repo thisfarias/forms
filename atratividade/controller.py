@@ -246,7 +246,7 @@ def send_mail(my_list):
         <span style='font-family:Arial'>Atenciosamente,</span>\n
         <br>\n
         <p style='font-family:Arial'>Equipe <a href='https://descomplica.com.br/' style='color:#00E88F; text-decoration:none'><b>Descomplica</b></a>.</p>
-        <img src='https://d3awytnmmfk53d.cloudfront.net/landings/static/images/core/logo_verde.svg'>
+        <img src='https://s3-recruiting.cdn.greenhouse.io/external_greenhouse_job_boards/logos/400/485/400/resized/LogoDescomplica.png?1602169648'>
         '''.format(
             host,
             host
